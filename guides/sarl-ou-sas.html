@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SARL ou SAS : quelle structure choisir ? — L'Allié</title>
+<meta name="description" content="SARL ou SAS ? Comparatif complet : gouvernance, fiscalité, régime social, transmission. Découvrez quelle structure est la plus adaptée à votre projet.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root {
+    --navy: #0F2C5C;
+    --navy-dark: #06152E;
+    --navy-deep: #0A1F3D;
+    --accent: #2E7CF6;
+    --accent-hover: #1B6AE0;
+    --accent-glow: rgba(46, 124, 246, 0.25);
+    --text: #FFFFFF;
+    --text-muted: #A8B8D0;
+    --bg-dark: #06152E;
+    --bg-section: #0A1F3D;
+    --bg-card: rgba(255, 255, 255, 0.04);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-light: rgba(255, 255, 255, 0.12);
+    --white: #FFFFFF;
+    --success: #10B981;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    background: var(--bg-dark);
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  .topbar {
+    background: rgba(6, 21, 46, 0.8);
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar-left { display: flex; gap: 20px; }
+  .topbar a { display: inline-flex; align-items: center; gap: 6px; }
+  .topbar a:hover { color: var(--white); }
+
+  header {
+    background: rgba(10, 31, 61, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .logo { display: flex; align-items: center; flex-shrink: 0; }
+  .logo-img { height: 56px; width: auto; display: block; }
+
+  .btn-partner-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 999px;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .btn-partner-header:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 4px;
+  }
+
+  .nav-item { position: relative; }
+
+  .nav-item > a, .nav-item > button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 18px;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.2s;
+  }
+
+  .nav-item > a:hover, .nav-item > button:hover { color: var(--accent); }
+
+  .chevron { transition: transform 0.2s; }
+  .nav-item:hover .chevron { transform: rotate(180deg); }
+
+  .mega-menu {
+    position: fixed;
+    top: 122px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    border-top: 1px solid #E5E7EB;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.25s ease;
+    z-index: 99;
+  }
+
+  .nav-item:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .mega-menu-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: grid;
+    gap: 32px;
+  }
+
+  .mega-3col { grid-template-columns: repeat(3, 1fr); }
+  .mega-4col-eq { grid-template-columns: repeat(4, 1fr); }
+  .mega-4col { grid-template-columns: repeat(3, 1fr) 280px; }
+
+  .mega-col h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #6B7280;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .mega-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    margin: 0 -12px;
+  }
+
+  .mega-link:hover {
+    background: #F8FAFC;
+    transform: translateX(4px);
+  }
+
+  .mega-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(46, 124, 246, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+
+  .mega-link-title {
+    font-weight: 600;
+    color: #0F2C5C;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .mega-link-desc {
+    font-size: 12px;
+    color: #6B7280;
+    margin-top: 2px;
+  }
+
+  .mega-cta-card {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color: var(--white);
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mega-cta-card h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .mega-cta-card p {
+    font-size: 13px;
+    opacity: 0.85;
+    margin-bottom: 16px;
+  }
+
+  .mega-cta-btn {
+    background: var(--white);
+    color: var(--navy);
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    transition: transform 0.2s;
+  }
+
+  .mega-cta-btn:hover { transform: translateY(-2px); }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-cta {
+    background: var(--accent);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px var(--accent-glow);
+  }
+
+  .btn-cta:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 28px var(--accent-glow);
+  }
+
+  .breadcrumb {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    font-size: 14px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .breadcrumb a { color: var(--text-muted); transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--accent); }
+  .breadcrumb .separator { opacity: 0.4; }
+  .breadcrumb .current { color: var(--white); font-weight: 500; }
+
+  .guide-hero {
+    background: var(--navy);
+    padding: 60px 24px 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .guide-hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(46,124,246,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .guide-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .guide-badge {
+    display: inline-block;
+    background: rgba(46, 124, 246, 0.15);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+
+  .guide-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .guide-hero-subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .guide-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .guide-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .guide-meta-item i { color: var(--accent); }
+
+  .toc-section {
+    max-width: 800px;
+    margin: -30px auto 0;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .toc-card {
+    background: var(--bg-section);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .toc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .toc-title i { color: var(--accent); }
+
+  .toc-list {
+    list-style: none;
+    counter-reset: toc;
+  }
+
+  .toc-list li {
+    counter-increment: toc;
+    margin-bottom: 12px;
+  }
+
+  .toc-list li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+
+  .toc-list li a:hover {
+    color: var(--accent);
+    background: rgba(46, 124, 246, 0.06);
+  }
+
+  .toc-list li a::before {
+    content: counter(toc);
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: rgba(46, 124, 246, 0.12);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .guide-body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+
+  .guide-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--white);
+    margin-bottom: 20px;
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    line-height: 1.3;
+  }
+
+  .guide-body h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .guide-body h3 {
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 14px;
+    margin-top: 32px;
+    font-weight: 700;
+  }
+
+  .guide-body p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .guide-body ul, .guide-body ol {
+    margin-bottom: 24px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .guide-body ul li, .guide-body ol li {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .guide-body ul li::before {
+    content: '';
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.15);
+    flex-shrink: 0;
+    margin-top: 3px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .callout {
+    background: rgba(46, 124, 246, 0.08);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+
+  .callout-title {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 15px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .callout p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 32px 0;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .comparison-table thead th {
+    background: var(--bg-section);
+    color: var(--white);
+    font-weight: 700;
+    padding: 16px 18px;
+    text-align: left;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  .comparison-table tbody td {
+    padding: 14px 18px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .comparison-table tbody tr:last-child td { border-bottom: none; }
+
+  .comparison-table tbody tr:hover td {
+    background: rgba(46, 124, 246, 0.04);
+  }
+
+  .comparison-table tbody td:first-child {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .mid-cta {
+    background: linear-gradient(135deg, var(--accent) 0%, #1B6AE0 100%);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    margin: 48px 0;
+  }
+
+  .mid-cta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 12px;
+    margin-top: 0;
+  }
+
+  .mid-cta p {
+    color: rgba(255,255,255,0.9);
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    color: var(--navy);
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s;
+  }
+
+  .btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+  .related-section {
+    background: var(--bg-section);
+    padding: 80px 24px;
+  }
+
+  .related-inner { max-width: 1280px; margin: 0 auto; }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 36px);
+    color: var(--white);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    color: var(--text-muted);
+    font-size: 17px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .guide-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    border: 1px solid var(--border-light);
+    backdrop-filter: blur(8px);
+  }
+
+  .guide-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(46,124,246,0.1);
+    border-color: var(--accent);
+  }
+
+  .guide-thumb {
+    height: 160px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+  }
+
+  .guide-card-content { padding: 24px; }
+
+  .guide-category {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .guide-card-content h3 {
+    color: var(--white);
+    font-size: 18px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .guide-card-content p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .guide-link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .final-cta {
+    background: var(--navy);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .final-cta-inner { max-width: 700px; margin: 0 auto; }
+
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .final-cta-inner > p {
+    color: var(--text-muted);
+    font-size: 17px;
+    margin-bottom: 32px;
+  }
+
+  .final-cta-contacts {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .final-cta-contact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 15px;
+    transition: color 0.2s;
+  }
+
+  .final-cta-contact:hover { color: var(--white); }
+  .final-cta-contact i { color: var(--accent); }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--white);
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 4px 24px var(--accent-glow);
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 32px var(--accent-glow);
+  }
+
+  footer {
+    background: var(--bg-dark);
+    color: rgba(255,255,255,0.6);
+    padding: 64px 24px 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner { max-width: 1280px; margin: 0 auto; }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand .logo { color: var(--white); margin-bottom: 16px; display: block; }
+  .footer-brand p { margin-bottom: 16px; font-size: 14px; line-height: 1.6; }
+
+  .footer-contact { display: flex; flex-direction: column; gap: 8px; }
+  .footer-contact a { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; }
+
+  .footer-col h4 {
+    color: var(--white);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 12px; font-size: 14px; }
+  .footer-col a:hover { color: var(--white); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  @media (max-width: 1024px) {
+    .btn-partner-header { display: none; }
+    nav ul { display: none; }
+    .mega-4col, .mega-3col, .mega-4col-eq { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .topbar { display: none; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .guide-meta { flex-direction: column; gap: 12px; }
+    .mid-cta { padding: 28px 20px; }
+    .final-cta-contacts { flex-direction: column; align-items: center; }
+    .comparison-table { font-size: 12px; }
+    .comparison-table thead th, .comparison-table tbody td { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href="tel:0123456789"><i data-lucide="phone" width="14" height="14"></i> 01 23 45 67 89</a>
+      <a href="mailto:Lalliepartenaire@gmail.com"><i data-lucide="mail" width="14" height="14"></i> Lalliepartenaire@gmail.com</a>
+    </div>
+    <div>
+      <a href="https://www.google.com/maps/search/?api=1&query=20+boulevard+de+la+Muette+Garges+les+Gonesse" target="_blank" style="display:inline-flex;align-items:center;gap:6px"><i data-lucide="map-pin" width="14" height="14"></i> 20 bd de la Muette, Garges-les-Gonesse</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="header-inner">
+    <a href="../lallie.html" class="logo"><img src="../images/logo-lallie.png" alt="L'Allié" class="logo-img"></a>
+
+    <a href="../partenaire.html" class="btn-partner-header"><i data-lucide="handshake" width="16" height="16"></i> Devenez notre partenaire</a>
+
+    <nav>
+      <ul>
+        <li class="nav-item">
+          <button>Création d'entreprise <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-4col">
+              <div class="mega-col">
+                <h4>Par forme juridique</h4>
+                <a href="../services/creation-societe.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="rocket" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Création de société</div><div class="mega-link-desc">Trouvez la bonne structure pour votre projet</div></div>
+                </a>
+                <a href="../services/creation-sas.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="trending-up" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SAS</div><div class="mega-link-desc">Flexibilité et actionnariat libre</div></div>
+                </a>
+                <a href="../services/creation-sasu.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="user" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SASU</div><div class="mega-link-desc">Société unipersonnelle simplifiée</div></div>
+                </a>
+                <a href="../services/creation-sarl.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="building-2" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SARL</div><div class="mega-link-desc">Idéal pour une gestion familiale</div></div>
+                </a>
+                <a href="../services/creation-sci.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="home" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SCI</div><div class="mega-link-desc">Gestion patrimoniale immobilière</div></div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Autres statuts</h4>
+                <a href="../services/creation-micro-entreprise.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="zap" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Micro-entreprise</div><div class="mega-link-desc">Le plus simple pour démarrer</div></div>
+                </a>
+                <a href="../services/creation-eurl.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="briefcase" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">EURL</div><div class="mega-link-desc">Entreprise individuelle à responsabilité</div></div>
+                </a>
+                <a href="../services/creation-association.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="handshake" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Association</div><div class="mega-link-desc">Organisez votre projet collectif</div></div>
+                </a>
+                <a href="../services/aide-choix-statut.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="help-circle" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Aide au choix du statut</div><div class="mega-link-desc">Conseil personnalisé selon votre projet</div></div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Par activité</h4>
+                <a href="../services/tenue-comptable.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="laptop" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Freelance / Consultant</div></div>
+                </a>
+                <a href="../services/tableaux-de-bord.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="shopping-cart" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">E-commerce</div></div>
+                </a>
+                <a href="../services/bilan-annuel.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="hammer" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Artisan / BTP</div></div>
+                </a>
+                <a href="../services/declarations-tva.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="store" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Commerce</div></div>
+                </a>
+                <a href="../services/declarations-urssaf.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="stethoscope" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Profession libérale</div></div>
+                </a>
+              </div>
+
+              <div class="mega-cta-card">
+                <div>
+                  <h5>Pas sûr de votre projet ?</h5>
+                  <p>Discutons-en ensemble. Premier échange gratuit et sans engagement.</p>
+                </div>
+                <a href="../contact.html" class="mega-cta-btn">Prendre rendez-vous <i data-lucide="arrow-right" width="14" height="14"></i></a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <button>Comptabilité <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-4col-eq">
+              <div class="mega-col">
+                <h4>Suivi mensuel</h4>
+                <a href="../services/declarations-impots.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="clipboard-list" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Tenue comptable</div><div class="mega-link-desc">Saisie et rapprochements</div></div>
+                </a>
+                <a href="../services/domiciliation.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="trending-up" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Tableaux de bord</div><div class="mega-link-desc">Pilotage en temps réel</div></div>
+                </a>
+                <a href="../services/gestion-courrier.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="briefcase-business" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Bilan annuel</div><div class="mega-link-desc">Clôture et déclarations</div></div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Déclarations</h4>
+                <a href="../services/modification-statuts.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="file-text" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">TVA</div><div class="mega-link-desc">Mensuelle ou trimestrielle</div></div>
+                </a>
+                <a href="../services/transfert-siege.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="euro" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">URSSAF & charges</div><div class="mega-link-desc">Cotisations sociales</div></div>
+                </a>
+                <a href="../services/fermeture-entreprise.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="files" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Impôts</div><div class="mega-link-desc">IS, IR, liasse fiscale</div></div>
+                </a>
+              </div>
+
+                            <div class="mega-col">
+                <h4>Facturation électronique</h4>
+                <a href="../services/facturation-logiciel.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="receipt" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Logiciel de facturation</div>
+                    <div class="mega-link-desc">Solution conforme et adaptée</div>
+                  </div>
+                </a>
+                <a href="../services/facturation-conformite.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="shield-check" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Mise en conformité</div>
+                    <div class="mega-link-desc">Respectez les obligations 2026</div>
+                  </div>
+                </a>
+                <a href="../services/facturation-accompagnement.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="users" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Accompagnement</div>
+                    <div class="mega-link-desc">Formation et suivi personnalisé</div>
+                  </div>
+                </a>
+              </div>
+
+<div class="mega-col">
+                <h4>Pour qui ?</h4>
+                <a href="../services/creation-site-internet.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="building-2" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SAS / SARL</div></div>
+                </a>
+                <a href="../services/referencement-google.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="user" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SASU / EURL</div></div>
+                </a>
+                <a href="../services/identite-visuelle.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="zap" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Auto-entreprise</div></div>
+                </a>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="home" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SCI</div></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <button>Autres services <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-3col">
+              <div class="mega-col">
+                <h4>Domiciliation</h4>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="map-pin" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Domiciliation de société</div><div class="mega-link-desc">Adresse pro pour votre Kbis</div></div>
+                </a>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="mailbox" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Gestion du courrier</div><div class="mega-link-desc">Scan et réexpédition</div></div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Formalités</h4>
+                <a href="../services/modification-statuts.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="refresh-cw" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Modification de statuts</div><div class="mega-link-desc">Changement de gérant, capital...</div></div>
+                </a>
+                <a href="../services/transfert-siege.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="truck" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Transfert de siège</div><div class="mega-link-desc">Déménagement de votre société</div></div>
+                </a>
+                <a href="../services/fermeture-entreprise.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="log-out" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Fermeture d'entreprise</div><div class="mega-link-desc">Dissolution et radiation</div></div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Visibilité digitale</h4>
+                <a href="../services/creation-site-internet.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="globe" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Création de site internet</div><div class="mega-link-desc">Vitrine ou e-commerce</div></div>
+                </a>
+                <a href="../services/referencement-google.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="search" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Référencement Google</div><div class="mega-link-desc">SEO et présence locale</div></div>
+                </a>
+                <a href="../services/identite-visuelle.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="palette" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Identité visuelle</div><div class="mega-link-desc">Logo et charte graphique</div></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="../guides.html">Guides</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="../contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="../rappel.html" class="btn-cta"><i data-lucide="phone" width="16" height="16"></i> Rappel gratuit</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ BREADCRUMB ============ -->
+<div class="breadcrumb">
+  <a href="../lallie.html">Accueil</a>
+  <span class="separator">/</span>
+  <a href="../guides.html">Guides</a>
+  <span class="separator">/</span>
+  <span class="current">SARL ou SAS</span>
+</div>
+
+<!-- ============ GUIDE HERO ============ -->
+<section class="guide-hero">
+  <div class="guide-hero-inner">
+    <div class="guide-badge">Juridique</div>
+    <h1>SARL ou SAS : quelle structure choisir pour votre projet ?</h1>
+    <p class="guide-hero-subtitle">
+      Ce sont les deux formes juridiques les plus populaires en France. Mais elles sont fondamentalement différentes. Gouvernance, fiscalité, régime social, transmission : ce guide compare tout pour vous aider à choisir.
+    </p>
+    <div class="guide-meta">
+      <div class="guide-meta-item">
+        <i data-lucide="clock" width="16" height="16"></i> 14 min de lecture
+      </div>
+      <div class="guide-meta-item">
+        <i data-lucide="calendar" width="16" height="16"></i> Mis à jour le 29 mai 2026
+      </div>
+      <div class="guide-meta-item">
+        <i data-lucide="user" width="16" height="16"></i> Par L'équipe L'Allié
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOMMAIRE ============ -->
+<div class="toc-section">
+  <div class="toc-card">
+    <div class="toc-title"><i data-lucide="list" width="22" height="22"></i> Sommaire</div>
+    <ol class="toc-list">
+      <li><a href="#section-1">Les similitudes entre SARL et SAS</a></li>
+      <li><a href="#section-2">Les différences fondamentales</a></li>
+      <li><a href="#section-3">Tableau comparatif détaillé</a></li>
+      <li><a href="#section-4">Avantages spécifiques de la SARL</a></li>
+      <li><a href="#section-5">Avantages spécifiques de la SAS</a></li>
+      <li><a href="#section-6">Pour quel projet choisir SARL ?</a></li>
+      <li><a href="#section-7">Pour quel projet choisir SAS ?</a></li>
+      <li><a href="#section-8">Coûts et obligations de chaque forme</a></li>
+      <li><a href="#section-9">Notre recommandation selon votre profil</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ============ GUIDE BODY ============ -->
+<div class="guide-body">
+
+  <h2 id="section-1">Les similitudes entre SARL et SAS</h2>
+
+  <p>Avant de détailler ce qui les oppose, il est important de rappeler que la SARL et la SAS partagent un socle commun significatif. Ces deux formes sont des sociétés commerciales à responsabilité limitée : la responsabilité des associés est plafonnée au montant de leurs apports. En cas de difficultés financières, vos biens personnels sont protégés.</p>
+
+  <p>Dans les deux cas, le capital social minimum est fixé à 1 euro symbolique (même si un capital plus conséquent est recommandé pour des raisons de crédibilité). Les deux structures sont soumises par défaut à l'impôt sur les sociétés (IS), avec possibilité d'opter temporairement pour l'impôt sur le revenu (IR) sous certaines conditions. Elles nécessitent toutes deux la rédaction de statuts, une immatriculation au registre du commerce et des sociétés, et sont soumises à des obligations comptables complètes : bilan annuel, assemblée d'approbation des comptes, dépôt au greffe.</p>
+
+  <p>Enfin, la SARL comme la SAS permettent de démarrer à deux associés minimum (ou seul sous forme d'EURL pour la SARL et de SASU pour la SAS). Les deux formes offrent la possibilité de distribuer des dividendes aux associés.</p>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>SARL et SAS partagent l'essentiel : responsabilité limitée, IS par défaut, capital libre, comptabilité complète. Ce sont les différences de gouvernance, de régime social et de souplesse qui doivent guider votre choix.</p>
+  </div>
+
+  <h2 id="section-2">Les différences fondamentales</h2>
+
+  <h3>La gouvernance</h3>
+  <p>C'est la différence la plus structurante. La SARL est dirigée par un ou plusieurs gérants, obligatoirement des personnes physiques. Son fonctionnement est très encadré par le Code de commerce : les règles de majorité, les pouvoirs du gérant et les droits des associés sont largement définis par la loi. Cette rigidité offre un cadre rassurant mais peu flexible.</p>
+
+  <p>La SAS est dirigée par un président (personne physique ou morale), et ses statuts peuvent prévoir d'autres organes de direction (directeur général, comité de direction, etc.). La grande force de la SAS réside dans la liberté statutaire quasi totale : les associés définissent librement les règles de fonctionnement, les conditions de majorité, les droits de veto, les clauses d'agrément et d'exclusion. Cette souplesse est un atout majeur pour les projets complexes ou évolutifs.</p>
+
+  <h3>Le régime social du dirigeant</h3>
+  <p>Le gérant majoritaire de SARL relève du régime des travailleurs non salariés (TNS). Ses cotisations sociales sont moins élevées (environ 45 % de la rémunération nette) mais sa couverture sociale est moindre, notamment en matière de retraite et de prévoyance. Des cotisations minimales sont dues même en l'absence de rémunération.</p>
+
+  <p>Le président de SAS est assimilé salarié. Ses cotisations sont plus élevées (environ 65 à 80 % de la rémunération nette) mais il bénéficie de la même couverture sociale qu'un salarié (maladie, retraite, prévoyance), à l'exception de l'assurance chômage. Avantage majeur : en l'absence de rémunération, aucune cotisation n'est due.</p>
+
+  <h3>La fiscalité des dividendes</h3>
+  <p>En SAS, les dividendes sont soumis au prélèvement forfaitaire unique (PFU ou "flat tax") de 30 % (12,8 % d'impôt sur le revenu + 17,2 % de prélèvements sociaux). C'est simple et prévisible.</p>
+
+  <p>En SARL, les dividendes perçus par le gérant majoritaire sont soumis aux cotisations sociales TNS (environ 45 %) pour la fraction dépassant 10 % du capital social + primes d'émission + sommes versées en compte courant d'associé. Cette règle rend la distribution de dividendes en SARL nettement moins avantageuse pour le gérant majoritaire.</p>
+
+  <h3>La transmission et la cession de parts/actions</h3>
+  <p>En SARL, la cession de parts sociales à un tiers nécessite obligatoirement l'agrément des associés (vote à la majorité). Les droits d'enregistrement sont de 3 % (après abattement). Cette procédure protège les associés existants mais rend les opérations plus lourdes.</p>
+
+  <p>En SAS, la cession d'actions est libre par défaut (sauf clause contraire dans les statuts). Les droits d'enregistrement sont de 0,1 %. C'est un avantage considérable pour les levées de fonds, les entrées/sorties d'investisseurs et la revente de l'entreprise.</p>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>Les quatre différences clés : la SAS offre plus de souplesse (gouvernance libre), un meilleur régime social (assimilé salarié), des dividendes moins taxés et une transmission facilitée. La SARL offre des cotisations sociales plus faibles et un cadre légal sécurisant.</p>
+  </div>
+
+  <h2 id="section-3">Tableau comparatif détaillé</h2>
+
+  <div class="table-wrapper">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Critère</th>
+          <th>SARL</th>
+          <th>SAS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nombre d'associés</td>
+          <td>2 à 100</td>
+          <td>2 minimum, pas de maximum</td>
+        </tr>
+        <tr>
+          <td>Capital minimum</td>
+          <td>1 €</td>
+          <td>1 €</td>
+        </tr>
+        <tr>
+          <td>Dirigeant</td>
+          <td>Gérant (personne physique)</td>
+          <td>Président (physique ou morale)</td>
+        </tr>
+        <tr>
+          <td>Régime social</td>
+          <td>TNS (gérant majoritaire)</td>
+          <td>Assimilé salarié</td>
+        </tr>
+        <tr>
+          <td>Cotisations sociales</td>
+          <td>~45 % (moins élevées)</td>
+          <td>~65-80 % (plus élevées)</td>
+        </tr>
+        <tr>
+          <td>Cotisations sans rémunération</td>
+          <td>Cotisations minimales dues</td>
+          <td>Aucune cotisation</td>
+        </tr>
+        <tr>
+          <td>Couverture sociale</td>
+          <td>Moindre (TNS)</td>
+          <td>Identique au salarié</td>
+        </tr>
+        <tr>
+          <td>Régime fiscal</td>
+          <td>IS (option IR temporaire)</td>
+          <td>IS (option IR temporaire)</td>
+        </tr>
+        <tr>
+          <td>Dividendes</td>
+          <td>Cotisations sociales au-delà de 10 % du capital</td>
+          <td>Flat tax 30 %</td>
+        </tr>
+        <tr>
+          <td>Souplesse des statuts</td>
+          <td>Encadrée par la loi</td>
+          <td>Liberté quasi totale</td>
+        </tr>
+        <tr>
+          <td>Cession de parts/actions</td>
+          <td>Agrément obligatoire, droits 3 %</td>
+          <td>Libre par défaut, droits 0,1 %</td>
+        </tr>
+        <tr>
+          <td>Entrée d'investisseurs</td>
+          <td>Difficile</td>
+          <td>Très facile</td>
+        </tr>
+        <tr>
+          <td>Actions de préférence</td>
+          <td>Non</td>
+          <td>Oui</td>
+        </tr>
+        <tr>
+          <td>Conjoint collaborateur</td>
+          <td>Possible</td>
+          <td>Non</td>
+        </tr>
+        <tr>
+          <td>Nombre max. d'associés</td>
+          <td>100</td>
+          <td>Illimité</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="section-4">Avantages spécifiques de la SARL</h2>
+
+  <p>Malgré la popularité grandissante de la SAS, la SARL conserve des atouts solides dans de nombreuses situations :</p>
+
+  <ul>
+    <li><strong>Cotisations sociales plus faibles.</strong> Pour un même niveau de rémunération, le gérant majoritaire de SARL paie significativement moins de cotisations que le président de SAS. Sur une rémunération nette de 50 000 euros, l'économie peut représenter plusieurs milliers d'euros par an.</li>
+    <li><strong>Cadre légal sécurisant.</strong> Le fonctionnement de la SARL est encadré par la loi, ce qui limite les risques de conflits entre associés. Les règles sont claires et connues de tous, sans nécessité de rédiger des statuts complexes.</li>
+    <li><strong>Statut du conjoint collaborateur.</strong> Seule la SARL permet au conjoint du gérant de bénéficier du statut de conjoint collaborateur, offrant une couverture sociale sans rémunération obligatoire. C'est un avantage significatif pour les entreprises familiales.</li>
+    <li><strong>SARL de famille.</strong> La SARL entre membres d'une même famille peut opter pour l'IR sans limitation de durée (contrairement à l'option IR classique limitée à 5 exercices). C'est un levier d'optimisation fiscale unique à cette forme juridique.</li>
+    <li><strong>Simplicité de gestion.</strong> Moins de formalisme dans la rédaction des statuts, des règles de majorité clairement définies par la loi, une jurisprudence abondante qui sécurise les décisions.</li>
+  </ul>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>La SARL est le choix rationnel quand les cotisations sociales basses sont prioritaires, quand le projet est familial, ou quand vous recherchez un cadre simple et sécurisé sans avoir besoin de souplesse statutaire.</p>
+  </div>
+
+  <h2 id="section-5">Avantages spécifiques de la SAS</h2>
+
+  <ul>
+    <li><strong>Liberté statutaire totale.</strong> Les associés définissent librement les organes de direction, les conditions de majorité, les clauses d'agrément, de sortie forcée, de drag-along, de tag-along... C'est un outil sur mesure, adaptable à tous les projets.</li>
+    <li><strong>Meilleure couverture sociale.</strong> Le président assimilé salarié bénéficie de la même protection qu'un salarié en matière de maladie, maternité et retraite. Un argument de poids pour les dirigeants soucieux de leur protection.</li>
+    <li><strong>Aucune cotisation sans rémunération.</strong> Si le président ne se verse pas de salaire (fréquent en phase de lancement), il ne paie aucune cotisation sociale. En SARL, des cotisations minimales restent dues.</li>
+    <li><strong>Dividendes avantageux.</strong> Flat tax à 30 % sur l'intégralité des dividendes, sans seuil ni cotisations sociales supplémentaires. C'est un levier d'optimisation de la rémunération globale du dirigeant.</li>
+    <li><strong>Attractivité pour les investisseurs.</strong> La possibilité de créer des actions de préférence, la liberté de rédaction du pacte d'actionnaires et la facilité de cession (droits à 0,1 %) en font la structure de référence pour les levées de fonds.</li>
+    <li><strong>Image moderne.</strong> La SAS est perçue comme une structure plus dynamique et contemporaine, ce qui peut jouer un rôle dans la perception de vos partenaires et clients.</li>
+  </ul>
+
+  <!-- MID-ARTICLE CTA -->
+  <div class="mid-cta">
+    <h3>SARL ou SAS ? On vous aide à choisir</h3>
+    <p>Chaque projet est unique. Nos experts analysent votre situation pour vous recommander la structure la plus adaptée.</p>
+    <a href="../contact.html" class="btn-white">Discutons-en gratuitement <i data-lucide="arrow-right" width="16" height="16"></i></a>
+  </div>
+
+  <h2 id="section-6">Pour quel projet choisir SARL ?</h2>
+
+  <p>La SARL est particulièrement adaptée dans les situations suivantes :</p>
+
+  <ul>
+    <li><strong>Un projet familial.</strong> Un couple ou des membres d'une même famille qui créent ensemble trouvent dans la SARL un cadre protecteur avec le statut de conjoint collaborateur et l'option SARL de famille à l'IR.</li>
+    <li><strong>Un artisan ou commerçant.</strong> Les activités artisanales, de restauration ou de commerce de proximité, où la structure actionnariale reste simple et stable, s'accommodent parfaitement de la SARL.</li>
+    <li><strong>Un budget cotisations à optimiser.</strong> Si votre priorité est de minimiser vos charges sociales pour maximiser votre rémunération nette, le régime TNS de la SARL est plus avantageux.</li>
+    <li><strong>Un projet sans ambition de levée de fonds.</strong> Si vous ne prévoyez pas de faire entrer des investisseurs extérieurs ni de céder rapidement des parts, la rigidité de la SARL n'est pas un handicap.</li>
+  </ul>
+
+  <h2 id="section-7">Pour quel projet choisir SAS ?</h2>
+
+  <ul>
+    <li><strong>Une startup avec levée de fonds.</strong> Si vous prévoyez de faire entrer des investisseurs (business angels, fonds de capital-risque), la SAS est incontournable. La souplesse des statuts et la facilité de cession sont des prérequis pour les investisseurs.</li>
+    <li><strong>Un projet tech ou innovant.</strong> La SAS permet de structurer des mécanismes de vesting pour les fondateurs et les salariés clés (BSPCE, actions gratuites), essentiels dans l'écosystème tech.</li>
+    <li><strong>Un dirigeant qui privilégie la protection sociale.</strong> Si vous êtes sensible à votre couverture santé, retraite et prévoyance, le régime assimilé salarié de la SAS est plus protecteur.</li>
+    <li><strong>Un projet en phase de lancement sans rémunération immédiate.</strong> L'absence de cotisations minimales en SAS est un avantage significatif quand le dirigeant ne se rémunère pas les premiers mois.</li>
+    <li><strong>Plusieurs associés avec des rôles différents.</strong> La liberté statutaire de la SAS permet de créer des organes de gouvernance adaptés : président opérationnel, conseil stratégique, droits de veto sur certaines décisions...</li>
+  </ul>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>SARL = projet familial, artisanal, stable, cotisations optimisées. SAS = startup, investisseurs, tech, protection sociale, gouvernance sur mesure. Le bon choix dépend de votre situation, pas d'une tendance générale.</p>
+  </div>
+
+  <h2 id="section-8">Coûts et obligations de chaque forme</h2>
+
+  <p>En termes de formalités de création, SARL et SAS sont très proches : rédaction des statuts, dépôt du capital social, publication d'une annonce légale, immatriculation au RCS. Les frais de création sont comparables.</p>
+
+  <p>Les obligations annuelles sont également similaires : tenue d'une comptabilité complète, établissement du bilan et du compte de résultat, tenue d'une assemblée annuelle d'approbation des comptes, dépôt des comptes au greffe du tribunal de commerce, déclarations de TVA et d'impôt sur les sociétés.</p>
+
+  <p>La principale différence de coût se situe au niveau des charges sociales du dirigeant. Pour une rémunération identique, un gérant majoritaire de SARL coûte moins cher en cotisations qu'un président de SAS. Cependant, cette économie doit être mise en balance avec la couverture sociale moindre et la fiscalité moins favorable des dividendes en SARL.</p>
+
+  <p>En matière de comptabilité, une SAS avec des statuts complexes (multiples catégories d'actions, gouvernance élaborée) peut engendrer des honoraires de conseil juridique plus élevés. En SARL, les statuts sont plus standardisés et donc moins coûteux à rédiger.</p>
+
+  <h2 id="section-9">Notre recommandation selon votre profil</h2>
+
+  <p>Après avoir accompagné des centaines de créateurs d'entreprise, voici nos recommandations synthétiques :</p>
+
+  <ul>
+    <li><strong>Vous êtes freelance seul ?</strong> SASU si vous voulez la protection sociale et l'optimisation des dividendes. EURL (version solo de la SARL) si vous préférez des cotisations plus faibles.</li>
+    <li><strong>Vous lancez un projet avec votre conjoint ?</strong> SARL, sans hésitation. Le statut de conjoint collaborateur et l'option SARL de famille sont des avantages uniques.</li>
+    <li><strong>Vous êtes deux associés avec un projet ambitieux ?</strong> SAS, pour la souplesse et l'attractivité auprès de futurs partenaires ou investisseurs.</li>
+    <li><strong>Vous êtes artisan ou commerçant ?</strong> SARL dans la majorité des cas. Le cadre est simple, les cotisations sont maîtrisées, et vos besoins de flexibilité statutaire sont limités.</li>
+    <li><strong>Vous visez une levée de fonds ?</strong> SAS, c'est le standard du marché. Les investisseurs connaissent et apprécient ce cadre juridique.</li>
+    <li><strong>Vous ne vous rémunérez pas au départ ?</strong> SAS ou SASU, pour éviter les cotisations minimales qui s'appliquent en SARL/EURL même sans revenu.</li>
+  </ul>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>Il n'existe pas de réponse universelle. Le meilleur choix est celui qui correspond à votre situation personnelle, à votre projet et à vos ambitions. Chez L'Allié, nous analysons tous ces paramètres avec vous lors d'un premier échange gratuit pour vous orienter vers la structure optimale.</p>
+  </div>
+
+</div>
+
+<!-- ============ POUR ALLER PLUS LOIN ============ -->
+<section class="related-section">
+  <div class="related-inner">
+    <h2 class="section-title">Pour aller plus loin</h2>
+    <p class="section-subtitle">Explorez nos autres guides pour approfondir vos connaissances.</p>
+    <div class="guides-grid">
+      <div class="guide-card">
+        <div class="guide-thumb"><i data-lucide="book-open" width="48" height="48"></i></div>
+        <div class="guide-card-content">
+          <div class="guide-category">Création</div>
+          <h3>Comment choisir le bon statut juridique ?</h3>
+          <p>SARL, SAS, micro-entreprise... Tous les critères pour faire le bon choix.</p>
+          <a href="comment-choisir-statut-juridique.html" class="guide-link">Lire le guide <i data-lucide="arrow-right" width="14" height="14"></i></a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-thumb"><i data-lucide="trending-up" width="48" height="48"></i></div>
+        <div class="guide-card-content">
+          <div class="guide-category">Comptabilité</div>
+          <h3>Les obligations comptables d'un dirigeant</h3>
+          <p>Ce que vous devez absolument savoir pour rester en règle.</p>
+          <a href="obligations-comptables-dirigeant.html" class="guide-link">Lire le guide <i data-lucide="arrow-right" width="14" height="14"></i></a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-thumb"><i data-lucide="building-2" width="48" height="48"></i></div>
+        <div class="guide-card-content">
+          <div class="guide-category">Domiciliation</div>
+          <h3>Pourquoi domicilier son entreprise est stratégique</h3>
+          <p>Image, confidentialité, fiscalité : les vrais enjeux.</p>
+          <a href="pourquoi-domicilier-entreprise.html" class="guide-link">Lire le guide <i data-lucide="arrow-right" width="14" height="14"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h2>Prêt à créer votre société ?</h2>
+    <p>Premier échange gratuit, sans engagement. On vous rappelle dans la journée.</p>
+    <div class="final-cta-contacts">
+      <a href="tel:0123456789" class="final-cta-contact"><i data-lucide="phone" width="18" height="18"></i> 01 23 45 67 89</a>
+      <a href="mailto:Lalliepartenaire@gmail.com" class="final-cta-contact"><i data-lucide="mail" width="18" height="18"></i> Lalliepartenaire@gmail.com</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=20+boulevard+de+la+Muette+Garges+les+Gonesse" target="_blank" class="final-cta-contact"><i data-lucide="map-pin" width="18" height="18"></i> 20 bd de la Muette, Garges</a>
+    </div>
+    <a href="../contact.html" class="btn-primary">Discutons de votre projet <i data-lucide="arrow-right" width="18" height="18"></i></a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../lallie.html" class="logo"><img src="../images/logo-lallie.png" alt="L'Allié" class="logo-img"></a>
+        <p>Votre partenaire de confiance pour toutes vos démarches administratives, comptables et juridiques.</p>
+        <div class="footer-contact">
+          <a href="tel:0123456789"><i data-lucide="phone" width="14" height="14"></i> 01 23 45 67 89</a>
+          <a href="mailto:Lalliepartenaire@gmail.com"><i data-lucide="mail" width="14" height="14"></i> Lalliepartenaire@gmail.com</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=20+boulevard+de+la+Muette+Garges+les+Gonesse" target="_blank"><i data-lucide="map-pin" width="14" height="14"></i> 20 bd de la Muette, Garges-lès-Gonesse</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Création d'entreprise</a></li>
+          <li><a href="#">Comptabilité</a></li>
+          <li><a href="#">Domiciliation</a></li>
+          <li><a href="#">Modification de statuts</a></li>
+          <li><a href="#">Création de site internet</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Entreprise</h4>
+        <ul>
+          <li><a href="#">À propos</a></li>
+          <li><a href="../guides.html">Nos guides</a></li>
+          <li><a href="#">Avis clients</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="../partenaire.html">Devenir partenaire</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">CGV / CGU</a></li>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">Gestion des cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 L'Allié — Tous droits réservés</div>
+      <div>Site conçu avec soin pour les entrepreneurs</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>

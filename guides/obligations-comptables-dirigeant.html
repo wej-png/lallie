@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les obligations comptables d'un dirigeant — L'Allié</title>
+<meta name="description" content="Découvrez toutes les obligations comptables d'un dirigeant d'entreprise : calendrier fiscal, documents à conserver, sanctions, outils et conseils pour bien s'organiser.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root {
+    --navy: #0F2C5C;
+    --navy-dark: #06152E;
+    --navy-deep: #0A1F3D;
+    --accent: #2E7CF6;
+    --accent-hover: #1B6AE0;
+    --accent-glow: rgba(46, 124, 246, 0.25);
+    --text: #FFFFFF;
+    --text-muted: #A8B8D0;
+    --bg-dark: #06152E;
+    --bg-section: #0A1F3D;
+    --bg-card: rgba(255, 255, 255, 0.04);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-light: rgba(255, 255, 255, 0.12);
+    --white: #FFFFFF;
+    --success: #10B981;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    background: var(--bg-dark);
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* ============ TOP BAR ============ */
+  .topbar {
+    background: rgba(6, 21, 46, 0.8);
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar-left { display: flex; gap: 20px; }
+  .topbar a { display: inline-flex; align-items: center; gap: 6px; }
+  .topbar a:hover { color: var(--white); }
+
+  /* ============ HEADER ============ */
+  header {
+    background: rgba(10, 31, 61, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .logo { display: flex; align-items: center; flex-shrink: 0; }
+  .logo-img { height: 56px; width: auto; display: block; }
+
+  .btn-partner-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 999px;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .btn-partner-header:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ============ NAVIGATION ============ */
+  nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 4px;
+  }
+
+  .nav-item { position: relative; }
+
+  .nav-item > a, .nav-item > button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 18px;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.2s;
+  }
+
+  .nav-item > a:hover, .nav-item > button:hover { color: var(--accent); }
+
+  .chevron { transition: transform 0.2s; }
+  .nav-item:hover .chevron { transform: rotate(180deg); }
+
+  /* ============ MEGA-MENU ============ */
+  .mega-menu {
+    position: fixed;
+    top: 122px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    border-top: 1px solid #E5E7EB;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.25s ease;
+    z-index: 99;
+  }
+
+  .nav-item:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .mega-menu-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: grid;
+    gap: 32px;
+  }
+
+  .mega-3col { grid-template-columns: repeat(3, 1fr); }
+  .mega-4col-eq { grid-template-columns: repeat(4, 1fr); }
+  .mega-4col { grid-template-columns: repeat(3, 1fr) 280px; }
+
+  .mega-col h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #6B7280;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .mega-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    margin: 0 -12px;
+  }
+
+  .mega-link:hover {
+    background: #F8FAFC;
+    transform: translateX(4px);
+  }
+
+  .mega-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(46, 124, 246, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+
+  .mega-link-title {
+    font-weight: 600;
+    color: #0F2C5C;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .mega-link-desc {
+    font-size: 12px;
+    color: #6B7280;
+    margin-top: 2px;
+  }
+
+  .mega-cta-card {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color: var(--white);
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mega-cta-card h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .mega-cta-card p {
+    font-size: 13px;
+    opacity: 0.85;
+    margin-bottom: 16px;
+  }
+
+  .mega-cta-btn {
+    background: var(--white);
+    color: var(--navy);
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    transition: transform 0.2s;
+  }
+
+  .mega-cta-btn:hover { transform: translateY(-2px); }
+
+  /* ============ HEADER ACTIONS ============ */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-cta {
+    background: var(--accent);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px var(--accent-glow);
+  }
+
+  .btn-cta:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 28px var(--accent-glow);
+  }
+
+  /* ============ BREADCRUMB ============ */
+  .breadcrumb {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    font-size: 14px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .breadcrumb a { color: var(--text-muted); transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--accent); }
+  .breadcrumb .separator { opacity: 0.4; }
+  .breadcrumb .current { color: var(--white); font-weight: 500; }
+
+  /* ============ GUIDE HERO ============ */
+  .guide-hero {
+    background: var(--navy);
+    padding: 60px 24px 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .guide-hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(46,124,246,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .guide-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .guide-badge {
+    display: inline-block;
+    background: rgba(46, 124, 246, 0.15);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+
+  .guide-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .guide-hero-subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .guide-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .guide-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .guide-meta-item i { color: var(--accent); }
+
+  /* ============ TABLE OF CONTENTS ============ */
+  .toc-section {
+    max-width: 800px;
+    margin: -30px auto 0;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .toc-card {
+    background: var(--bg-section);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .toc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .toc-title i { color: var(--accent); }
+
+  .toc-list {
+    list-style: none;
+    counter-reset: toc;
+  }
+
+  .toc-list li {
+    counter-increment: toc;
+    margin-bottom: 12px;
+  }
+
+  .toc-list li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+
+  .toc-list li a:hover {
+    color: var(--accent);
+    background: rgba(46, 124, 246, 0.06);
+  }
+
+  .toc-list li a::before {
+    content: counter(toc);
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: rgba(46, 124, 246, 0.12);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ============ GUIDE BODY ============ */
+  .guide-body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+
+  .guide-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--white);
+    margin-bottom: 20px;
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    line-height: 1.3;
+  }
+
+  .guide-body h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .guide-body h3 {
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 14px;
+    margin-top: 32px;
+    font-weight: 700;
+  }
+
+  .guide-body p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .guide-body ul, .guide-body ol {
+    margin-bottom: 24px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .guide-body ul li, .guide-body ol li {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .guide-body ul li::before {
+    content: '';
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.15);
+    flex-shrink: 0;
+    margin-top: 3px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* ============ CALLOUT ============ */
+  .callout {
+    background: rgba(46, 124, 246, 0.08);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+
+  .callout-title {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 15px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .callout p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* ============ COMPARISON TABLE ============ */
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 32px 0;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .comparison-table thead th {
+    background: var(--bg-section);
+    color: var(--white);
+    font-weight: 700;
+    padding: 16px 18px;
+    text-align: left;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  .comparison-table tbody td {
+    padding: 14px 18px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .comparison-table tbody tr:last-child td { border-bottom: none; }
+
+  .comparison-table tbody tr:hover td {
+    background: rgba(46, 124, 246, 0.04);
+  }
+
+  .comparison-table tbody td:first-child {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  /* ============ MID-ARTICLE CTA ============ */
+  .mid-cta {
+    background: linear-gradient(135deg, var(--accent) 0%, #1B6AE0 100%);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    margin: 48px 0;
+  }
+
+  .mid-cta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 12px;
+    margin-top: 0;
+  }
+
+  .mid-cta p {
+    color: rgba(255,255,255,0.9);
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    color: var(--navy);
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s;
+  }
+
+  .btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+  /* ============ RELATED GUIDES ============ */
+  .related-section {
+    background: var(--bg-section);
+    padding: 80px 24px;
+  }
+
+  .related-inner { max-width: 1280px; margin: 0 auto; }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 36px);
+    color: var(--white);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    color: var(--text-muted);
+    font-size: 17px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .guide-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    border: 1px solid var(--border-light);
+    backdrop-filter: blur(8px);
+  }
+
+  .guide-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(46,124,246,0.1);
+    border-color: var(--accent);
+  }
+
+  .guide-thumb {
+    height: 160px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+  }
+
+  .guide-card-content { padding: 24px; }
+
+  .guide-category {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .guide-card-content h3 {
+    color: var(--white);
+    font-size: 18px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .guide-card-content p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .guide-link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ============ FINAL CTA ============ */
+  .final-cta {
+    background: var(--navy);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .final-cta-inner { max-width: 700px; margin: 0 auto; }
+
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .final-cta-inner > p {
+    color: var(--text-muted);
+    font-size: 17px;
+    margin-bottom: 32px;
+  }
+
+  .final-cta-contacts {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .final-cta-contact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 15px;
+    transition: color 0.2s;
+  }
+
+  .final-cta-contact:hover { color: var(--white); }
+  .final-cta-contact i { color: var(--accent); }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--white);
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 4px 24px var(--accent-glow);
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 32px var(--accent-glow);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--bg-dark);
+    color: rgba(255,255,255,0.6);
+    padding: 64px 24px 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner { max-width: 1280px; margin: 0 auto; }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand .logo { color: var(--white); margin-bottom: 16px; display: block; }
+  .footer-brand p { margin-bottom: 16px; font-size: 14px; line-height: 1.6; }
+
+  .footer-contact { display: flex; flex-direction: column; gap: 8px; }
+  .footer-contact a { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; }
+
+  .footer-col h4 {
+    color: var(--white);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 12px; font-size: 14px; }
+  .footer-col a:hover { color: var(--white); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1024px) {
+    .btn-partner-header { display: none; }
+    nav ul { display: none; }
+    .mega-4col, .mega-3col, .mega-4col-eq { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .topbar { display: none; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .guide-meta { flex-direction: column; gap: 12px; }
+    .mid-cta { padding: 28px 20px; }
+    .final-cta-contacts { flex-direction: column; align-items: center; }
+    .comparison-table { font-size: 12px; }
+    .comparison-table thead th, .comparison-table tbody td { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href="tel:0123456789"><i data-lucide="phone" width="14" height="14"></i> 01 23 45 67 89</a>
+      <a href="mailto:Lalliepartenaire@gmail.com"><i data-lucide="mail" width="14" height="14"></i> Lalliepartenaire@gmail.com</a>
+    </div>
+    <div>
+      <a href="https://www.google.com/maps/search/?api=1&query=20+boulevard+de+la+Muette+Garges+les+Gonesse" target="_blank" style="display:inline-flex;align-items:center;gap:6px"><i data-lucide="map-pin" width="14" height="14"></i> 20 bd de la Muette, Garges-les-Gonesse</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="header-inner">
+    <a href="../lallie.html" class="logo"><img src="../images/logo-lallie.png" alt="L'Allié" class="logo-img"></a>
+
+    <a href="../partenaire.html" class="btn-partner-header"><i data-lucide="handshake" width="16" height="16"></i> Devenez notre partenaire</a>
+
+    <nav>
+      <ul>
+        <li class="nav-item">
+          <button>Création d'entreprise <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-4col">
+              <div class="mega-col">
+                <h4>Par forme juridique</h4>
+                <a href="../services/creation-societe.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="rocket" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Création de société</div><div class="mega-link-desc">Trouvez la bonne structure pour votre projet</div></div>
+                </a>
+                <a href="../services/creation-sas.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="trending-up" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SAS</div><div class="mega-link-desc">Flexibilité et actionnariat libre</div></div>
+                </a>
+                <a href="../services/creation-sasu.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="user" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SASU</div><div class="mega-link-desc">Société unipersonnelle simplifiée</div></div>
+                </a>
+                <a href="../services/creation-sarl.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="building-2" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SARL</div><div class="mega-link-desc">Idéal pour une gestion familiale</div></div>
+                </a>
+                <a href="../services/creation-sci.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="home" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SCI</div><div class="mega-link-desc">Gestion patrimoniale immobilière</div></div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Autres statuts</h4>
+                <a href="../services/creation-micro-entreprise.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="zap" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Micro-entreprise</div><div class="mega-link-desc">Le plus simple pour démarrer</div></div>
+                </a>
+                <a href="../services/creation-eurl.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="briefcase" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">EURL</div><div class="mega-link-desc">Entreprise individuelle à responsabilité</div></div>
+                </a>
+                <a href="../services/creation-association.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="handshake" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Association</div><div class="mega-link-desc">Organisez votre projet collectif</div></div>
+                </a>
+                <a href="../services/aide-choix-statut.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="help-circle" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Aide au choix du statut</div><div class="mega-link-desc">Conseil personnalisé selon votre projet</div></div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Par activité</h4>
+                <a href="../services/tenue-comptable.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="laptop" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Freelance / Consultant</div></div>
+                </a>
+                <a href="../services/tableaux-de-bord.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="shopping-cart" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">E-commerce</div></div>
+                </a>
+                <a href="../services/bilan-annuel.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="hammer" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Artisan / BTP</div></div>
+                </a>
+                <a href="../services/declarations-tva.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="store" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Commerce</div></div>
+                </a>
+                <a href="../services/declarations-urssaf.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="stethoscope" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Profession libérale</div></div>
+                </a>
+              </div>
+
+              <div class="mega-cta-card">
+                <div>
+                  <h5>Pas sûr de votre projet ?</h5>
+                  <p>Discutons-en ensemble. Premier échange gratuit et sans engagement.</p>
+                </div>
+                <a href="../contact.html" class="mega-cta-btn">Prendre rendez-vous <i data-lucide="arrow-right" width="14" height="14"></i></a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <button>Comptabilité <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-4col-eq">
+              <div class="mega-col">
+                <h4>Suivi mensuel</h4>
+                <a href="../services/declarations-impots.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="clipboard-list" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Tenue comptable</div><div class="mega-link-desc">Saisie et rapprochements</div></div>
+                </a>
+                <a href="../services/domiciliation.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="trending-up" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Tableaux de bord</div><div class="mega-link-desc">Pilotage en temps réel</div></div>
+                </a>
+                <a href="../services/gestion-courrier.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="briefcase-business" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Bilan annuel</div><div class="mega-link-desc">Clôture et déclarations</div></div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Déclarations</h4>
+                <a href="../services/modification-statuts.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="file-text" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">TVA</div><div class="mega-link-desc">Mensuelle ou trimestrielle</div></div>
+                </a>
+                <a href="../services/transfert-siege.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="euro" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">URSSAF & charges</div><div class="mega-link-desc">Cotisations sociales</div></div>
+                </a>
+                <a href="../services/fermeture-entreprise.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="files" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Impôts</div><div class="mega-link-desc">IS, IR, liasse fiscale</div></div>
+                </a>
+              </div>
+
+                            <div class="mega-col">
+                <h4>Facturation électronique</h4>
+                <a href="../services/facturation-logiciel.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="receipt" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Logiciel de facturation</div>
+                    <div class="mega-link-desc">Solution conforme et adaptée</div>
+                  </div>
+                </a>
+                <a href="../services/facturation-conformite.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="shield-check" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Mise en conformité</div>
+                    <div class="mega-link-desc">Respectez les obligations 2026</div>
+                  </div>
+                </a>
+                <a href="../services/facturation-accompagnement.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="users" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Accompagnement</div>
+                    <div class="mega-link-desc">Formation et suivi personnalisé</div>
+                  </div>
+                </a>
+              </div>
+
+<div class="mega-col">
+                <h4>Pour qui ?</h4>
+                <a href="../services/creation-site-internet.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="building-2" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SAS / SARL</div></div>
+                </a>
+                <a href="../services/referencement-google.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="user" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SASU / EURL</div></div>
+                </a>
+                <a href="../services/identite-visuelle.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="zap" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Auto-entreprise</div></div>
+                </a>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="home" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SCI</div></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <button>Autres services <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-3col">
+              <div class="mega-col">
+                <h4>Domiciliation</h4>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="map-pin" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Domiciliation de société</div><div class="mega-link-desc">Adresse pro pour votre Kbis</div></div>
+                </a>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="mailbox" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Gestion du courrier</div><div class="mega-link-desc">Scan et réexpédition</div></div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Formalités</h4>
+                <a href="../services/modification-statuts.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="refresh-cw" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Modification de statuts</div><div class="mega-link-desc">Changement de gérant, capital...</div></div>
+                </a>
+                <a href="../services/transfert-siege.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="truck" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Transfert de siège</div><div class="mega-link-desc">Déménagement de votre société</div></div>
+                </a>
+                <a href="../services/fermeture-entreprise.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="log-out" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Fermeture d'entreprise</div><div class="mega-link-desc">Dissolution et radiation</div></div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Visibilité digitale</h4>
+                <a href="../services/creation-site-internet.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="globe" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Création de site internet</div><div class="mega-link-desc">Vitrine ou e-commerce</div></div>
+                </a>
+                <a href="../services/referencement-google.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="search" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Référencement Google</div><div class="mega-link-desc">SEO et présence locale</div></div>
+                </a>
+                <a href="../services/identite-visuelle.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="palette" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Identité visuelle</div><div class="mega-link-desc">Logo et charte graphique</div></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="../guides.html">Guides</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="../contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="../rappel.html" class="btn-cta"><i data-lucide="phone" width="16" height="16"></i> Rappel gratuit</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ BREADCRUMB ============ -->
+<div class="breadcrumb">
+  <a href="../lallie.html">Accueil</a>
+  <span class="separator">/</span>
+  <a href="../guides.html">Guides</a>
+  <span class="separator">/</span>
+  <span class="current">Les obligations comptables d'un dirigeant</span>
+</div>
+
+<!-- ============ GUIDE HERO ============ -->
+<section class="guide-hero">
+  <div class="guide-hero-inner">
+    <div class="guide-badge">Comptabilité</div>
+    <h1>Les obligations comptables d'un dirigeant : tout ce qu'il faut savoir</h1>
+    <p class="guide-hero-subtitle">
+      TVA, URSSAF, bilan annuel, dépôt des comptes... En tant que dirigeant, vous avez des obligations comptables précises à respecter. Ce guide vous donne toutes les clés pour rester en règle et vous organiser efficacement.
+    </p>
+    <div class="guide-meta">
+      <div class="guide-meta-item">
+        <i data-lucide="clock" width="16" height="16"></i> 15 min de lecture
+      </div>
+      <div class="guide-meta-item">
+        <i data-lucide="calendar" width="16" height="16"></i> Mis à jour le 29 mai 2026
+      </div>
+      <div class="guide-meta-item">
+        <i data-lucide="user" width="16" height="16"></i> Par L'équipe L'Allié
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOMMAIRE ============ -->
+<div class="toc-section">
+  <div class="toc-card">
+    <div class="toc-title"><i data-lucide="list" width="22" height="22"></i> Sommaire</div>
+    <ol class="toc-list">
+      <li><a href="#section-1">Pourquoi la comptabilité est obligatoire</a></li>
+      <li><a href="#section-2">Les obligations selon la forme juridique</a></li>
+      <li><a href="#section-3">Le calendrier annuel du dirigeant</a></li>
+      <li><a href="#section-4">Les documents à conserver et combien de temps</a></li>
+      <li><a href="#section-5">Les sanctions en cas de manquement</a></li>
+      <li><a href="#section-6">Faire sa compta soi-même ou se faire accompagner</a></li>
+      <li><a href="#section-7">Les outils digitaux pour gagner du temps</a></li>
+      <li><a href="#section-8">Comment choisir son cabinet comptable</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ============ GUIDE BODY ============ -->
+<div class="guide-body">
+
+  <!-- SECTION 1 -->
+  <h2 id="section-1">Pourquoi la comptabilité est obligatoire</h2>
+
+  <p>En France, la tenue d'une comptabilité n'est pas une option : c'est une obligation légale inscrite dans le Code de commerce (articles L123-12 à L123-28) et dans le Code général des impôts. Toute personne physique ou morale ayant la qualité de commerçant est tenue de tenir une comptabilité régulière, sincère et fidèle.</p>
+
+  <p>Cette obligation poursuit plusieurs objectifs. Pour l'État, elle garantit une assiette fiscale fiable : c'est sur la base de votre comptabilité que vos impôts et cotisations sont calculés. Pour les tiers (fournisseurs, banques, investisseurs), elle offre une visibilité sur la santé financière de votre entreprise. Et pour vous, dirigeant, elle constitue un outil de pilotage indispensable pour prendre des décisions éclairées.</p>
+
+  <p>Le niveau de complexité de vos obligations comptables varie considérablement selon votre forme juridique, votre régime fiscal et votre chiffre d'affaires. Un micro-entrepreneur a des obligations très allégées, tandis qu'une SAS soumise à l'IS doit tenir une comptabilité complète avec bilan, compte de résultat et annexe.</p>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>La comptabilité n'est pas qu'une contrainte administrative : c'est votre tableau de bord pour piloter votre entreprise. Les chiffres que vous produisez chaque mois vous permettent de savoir exactement où vous en êtes et d'anticiper les difficultés.</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <h2 id="section-2">Les obligations selon la forme juridique</h2>
+
+  <p>Vos obligations comptables dépendent directement de la forme juridique de votre entreprise et de votre régime fiscal. Voici un récapitulatif par type de structure :</p>
+
+  <h3>Micro-entreprise</h3>
+  <p>C'est le régime le plus simple. Vous devez uniquement tenir un livre des recettes (chronologique, détaillant chaque encaissement) et, si vous exercez une activité de vente, un registre des achats. Pas de bilan, pas de compte de résultat, pas de TVA à déclarer (en franchise de base). Vous déclarez simplement votre chiffre d'affaires mensuellement ou trimestriellement à l'URSSAF.</p>
+
+  <h3>SARL / EURL</h3>
+  <p>Comptabilité complète obligatoire : enregistrement chronologique de toutes les opérations, tenue d'un journal, d'un grand livre, réalisation d'un bilan et d'un compte de résultat annuels, rédaction d'une annexe comptable. Le gérant doit convoquer une assemblée générale ordinaire (AGO) pour approuver les comptes dans les 6 mois suivant la clôture de l'exercice. Les comptes annuels doivent être déposés au greffe du tribunal de commerce.</p>
+
+  <h3>SAS / SASU</h3>
+  <p>Mêmes obligations qu'une SARL en termes de comptabilité complète. Le président convoque une assemblée des associés pour approuver les comptes. Les comptes doivent également être déposés au greffe. Si certains seuils sont dépassés (chiffre d'affaires, total bilan, nombre de salariés), un commissaire aux comptes doit être nommé.</p>
+
+  <h3>SCI</h3>
+  <p>Si la SCI est soumise à l'IR (régime par défaut), une comptabilité de trésorerie simplifiée suffit. Si elle opte pour l'IS, elle est soumise aux mêmes obligations qu'une société commerciale : comptabilité d'engagement complète, bilan, compte de résultat, dépôt au greffe.</p>
+
+  <div class="table-wrapper">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Obligation</th>
+          <th>Micro</th>
+          <th>SARL / EURL</th>
+          <th>SAS / SASU</th>
+          <th>SCI (IR)</th>
+          <th>SCI (IS)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Livre des recettes</td>
+          <td>Oui</td>
+          <td>—</td>
+          <td>—</td>
+          <td>Oui</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Comptabilité complète</td>
+          <td>Non</td>
+          <td>Oui</td>
+          <td>Oui</td>
+          <td>Non</td>
+          <td>Oui</td>
+        </tr>
+        <tr>
+          <td>Bilan & compte de résultat</td>
+          <td>Non</td>
+          <td>Oui</td>
+          <td>Oui</td>
+          <td>Non</td>
+          <td>Oui</td>
+        </tr>
+        <tr>
+          <td>Assemblée d'approbation</td>
+          <td>Non</td>
+          <td>Oui (6 mois)</td>
+          <td>Oui (6 mois)</td>
+          <td>Non</td>
+          <td>Oui</td>
+        </tr>
+        <tr>
+          <td>Dépôt des comptes au greffe</td>
+          <td>Non</td>
+          <td>Oui</td>
+          <td>Oui</td>
+          <td>Non</td>
+          <td>Oui</td>
+        </tr>
+        <tr>
+          <td>Déclaration de TVA</td>
+          <td>Non (franchise)</td>
+          <td>Oui</td>
+          <td>Oui</td>
+          <td>Selon activité</td>
+          <td>Oui</td>
+        </tr>
+        <tr>
+          <td>Commissaire aux comptes</td>
+          <td>Non</td>
+          <td>Si seuils dépassés</td>
+          <td>Si seuils dépassés</td>
+          <td>Non</td>
+          <td>Si seuils dépassés</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>Plus votre structure est complexe, plus vos obligations comptables sont lourdes. La micro-entreprise est ultra-simplifiée, tandis que les sociétés (SARL, SAS) nécessitent une comptabilité complète, un bilan annuel et un dépôt au greffe.</p>
+  </div>
+
+  <!-- SECTION 3 -->
+  <h2 id="section-3">Le calendrier annuel du dirigeant</h2>
+
+  <p>Un dirigeant doit respecter un calendrier fiscal et social strict tout au long de l'année. Manquer une échéance peut entraîner des pénalités, des majorations ou des intérêts de retard. Voici les principales échéances à connaître :</p>
+
+  <div class="table-wrapper">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Échéance</th>
+          <th>Fréquence</th>
+          <th>Détail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Déclaration de TVA</td>
+          <td>Mensuelle ou trimestrielle</td>
+          <td>CA3 (régime réel normal) ou CA12 (régime simplifié annuel)</td>
+        </tr>
+        <tr>
+          <td>Cotisations URSSAF</td>
+          <td>Mensuelle ou trimestrielle</td>
+          <td>Cotisations sociales du dirigeant TNS ou prélèvements sur salaire (assimilé salarié)</td>
+        </tr>
+        <tr>
+          <td>Acomptes d'IS</td>
+          <td>4 fois par an</td>
+          <td>15 mars, 15 juin, 15 septembre, 15 décembre — basés sur le résultat de l'exercice précédent</td>
+        </tr>
+        <tr>
+          <td>Clôture de l'exercice</td>
+          <td>Annuelle</td>
+          <td>Généralement au 31 décembre (mais date libre). Établissement du bilan et du compte de résultat</td>
+        </tr>
+        <tr>
+          <td>Assemblée générale</td>
+          <td>Annuelle</td>
+          <td>Dans les 6 mois suivant la clôture. Approbation des comptes et affectation du résultat</td>
+        </tr>
+        <tr>
+          <td>Dépôt des comptes au greffe</td>
+          <td>Annuelle</td>
+          <td>Dans le mois suivant l'approbation des comptes (2 mois si dépôt en ligne)</td>
+        </tr>
+        <tr>
+          <td>Liasse fiscale</td>
+          <td>Annuelle</td>
+          <td>Déclaration de résultat (formulaire 2065 pour l'IS, 2031 pour les BIC) — généralement en mai</td>
+        </tr>
+        <tr>
+          <td>CFE</td>
+          <td>Annuelle</td>
+          <td>Cotisation Foncière des Entreprises — paiement en décembre</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>Créez un calendrier avec toutes vos échéances fiscales et sociales dès la création de votre entreprise. Un retard, même de quelques jours, peut entraîner des pénalités automatiques de 10 % sur les montants dus.</p>
+  </div>
+
+  <!-- SECTION 4 -->
+  <h2 id="section-4">Les documents à conserver et combien de temps</h2>
+
+  <p>En tant que dirigeant, vous êtes tenu de conserver un certain nombre de documents comptables et administratifs pendant des durées précises. En cas de contrôle fiscal ou de litige commercial, ces documents constituent vos preuves.</p>
+
+  <ul>
+    <li><strong>Documents comptables</strong> (livres, journaux, grand livre, bilan, comptes de résultat) : 10 ans à compter de la clôture de l'exercice.</li>
+    <li><strong>Pièces justificatives</strong> (factures émises et reçues, bons de commande, bons de livraison) : 10 ans.</li>
+    <li><strong>Documents fiscaux</strong> (déclarations de TVA, liasses fiscales, avis d'imposition) : 6 ans à compter de la dernière opération mentionnée ou de la date de la déclaration.</li>
+    <li><strong>Documents sociaux</strong> (bulletins de paie, contrats de travail, registre du personnel) : 5 ans après le départ du salarié.</li>
+    <li><strong>Relevés bancaires</strong> : 10 ans. Ils constituent des pièces justificatives essentielles en cas de contrôle.</li>
+    <li><strong>Contrats commerciaux</strong> : 5 ans après la fin du contrat (prescription commerciale de droit commun).</li>
+    <li><strong>Statuts et PV d'assemblées</strong> : durée de vie de la société + 5 ans après la radiation.</li>
+  </ul>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>La règle simple : conservez tous vos documents comptables et bancaires pendant 10 ans, vos documents fiscaux pendant 6 ans, et vos documents sociaux pendant 5 ans après la fin de la relation. En cas de doute, gardez plus longtemps plutôt que moins.</p>
+  </div>
+
+  <!-- MID-ARTICLE CTA -->
+  <div class="mid-cta">
+    <h3>Besoin d'aide avec votre comptabilité ?</h3>
+    <p>Notre équipe d'experts comptables vous accompagne pour toutes vos obligations. Premier échange gratuit.</p>
+    <a href="../contact.html" class="btn-white">Discutons-en gratuitement <i data-lucide="arrow-right" width="16" height="16"></i></a>
+  </div>
+
+  <!-- SECTION 5 -->
+  <h2 id="section-5">Les sanctions en cas de manquement</h2>
+
+  <p>Ne pas respecter ses obligations comptables expose le dirigeant à des sanctions qui peuvent être lourdes. L'administration fiscale et les tribunaux ne plaisantent pas avec ces manquements :</p>
+
+  <h3>Sanctions fiscales</h3>
+  <p>Le défaut de déclaration ou la déclaration tardive entraîne une majoration automatique de 10 % des sommes dues. Si l'administration vous met en demeure et que vous ne régularisez pas sous 30 jours, cette majoration passe à 40 %. En cas de manœuvres frauduleuses avérées, la pénalité peut atteindre 80 % des droits éludés, auxquels s'ajoutent des intérêts de retard (0,20 % par mois).</p>
+
+  <h3>Sanctions pénales</h3>
+  <p>La présentation de comptes inexacts ou la non-tenue de comptabilité peuvent constituer un délit pénal. Le dirigeant risque jusqu'à 5 ans d'emprisonnement et 500 000 euros d'amende pour faux bilan. L'absence de dépôt des comptes au greffe est sanctionnée d'une amende de 1 500 euros (3 000 euros en cas de récidive).</p>
+
+  <h3>Interdiction de gérer</h3>
+  <p>En cas de faute de gestion grave ayant contribué à l'insuffisance d'actif lors d'une liquidation judiciaire, le dirigeant peut être condamné à une interdiction de gérer, diriger ou contrôler une entreprise pour une durée pouvant aller jusqu'à 15 ans.</p>
+
+  <h3>Rejet de comptabilité</h3>
+  <p>Si votre comptabilité est jugée non probante (incomplète, irrégulière, non sincère), l'administration fiscale peut la rejeter et procéder à une reconstitution de votre chiffre d'affaires et de votre bénéfice selon ses propres estimations. C'est la situation la plus défavorable pour un dirigeant, car la charge de la preuve s'inverse.</p>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>Les sanctions pour manquement comptable sont progressives mais peuvent être très lourdes : de 10 % de majoration pour un simple retard à des poursuites pénales pour fraude. La prévention passe par une comptabilité rigoureuse et le respect des échéances.</p>
+  </div>
+
+  <!-- SECTION 6 -->
+  <h2 id="section-6">Faire sa compta soi-même ou se faire accompagner</h2>
+
+  <p>C'est un dilemme classique pour tout dirigeant. Faire sa comptabilité soi-même permet d'économiser sur les honoraires d'un expert-comptable, mais comporte des risques réels si l'on n'est pas formé à la matière.</p>
+
+  <h3>Faire sa compta soi-même : pour qui ?</h3>
+  <p>Cette approche peut convenir aux micro-entrepreneurs (dont les obligations sont très légères) et aux dirigeants ayant une solide formation en gestion ou en comptabilité. Elle nécessite du temps, de la rigueur et une veille permanente sur les évolutions réglementaires. Le risque principal est l'erreur involontaire, qui peut entraîner un redressement fiscal.</p>
+
+  <h3>Se faire accompagner par un expert-comptable</h3>
+  <p>L'expert-comptable prend en charge tout ou partie de vos obligations : saisie comptable, déclarations fiscales et sociales, bilan annuel, conseil en gestion et optimisation. C'est un interlocuteur privilégié qui connaît votre activité et peut vous alerter en cas de dérive. Pour les sociétés (SARL, SAS), c'est presque incontournable tant les obligations sont complexes.</p>
+
+  <p>L'accompagnement comptable n'est pas qu'un coût : c'est un investissement. Un bon expert-comptable vous fait gagner du temps, vous protège en cas de contrôle, et vous aide à prendre de meilleures décisions financières. Le temps que vous ne passez pas sur la comptabilité, vous le consacrez à développer votre activité.</p>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>En micro-entreprise, gérer sa comptabilité soi-même est tout à fait faisable. En société, l'accompagnement par un expert-comptable est fortement recommandé : les obligations sont complexes et les conséquences d'une erreur potentiellement graves.</p>
+  </div>
+
+  <!-- SECTION 7 -->
+  <h2 id="section-7">Les outils digitaux pour gagner du temps</h2>
+
+  <p>La digitalisation de la comptabilité a transformé le quotidien des dirigeants. De nombreux outils permettent aujourd'hui d'automatiser une grande partie des tâches répétitives et de gagner un temps précieux :</p>
+
+  <h3>Logiciels de facturation</h3>
+  <p>Ces outils vous permettent de créer des devis et factures conformes à la réglementation, de suivre les paiements et les relances, et d'exporter automatiquement les données vers votre comptabilité. Depuis la loi anti-fraude TVA, l'utilisation d'un logiciel de facturation certifié est obligatoire pour les assujettis à la TVA.</p>
+
+  <h3>Outils de comptabilité en ligne</h3>
+  <p>Les solutions de comptabilité en ligne permettent de centraliser l'ensemble de vos opérations financières : rapprochement bancaire automatique, catégorisation des dépenses, génération automatique des écritures comptables. Certaines sont suffisamment complètes pour gérer la comptabilité d'une micro-entreprise en totale autonomie.</p>
+
+  <h3>Banque professionnelle en ligne</h3>
+  <p>Les banques pro en ligne offrent des interfaces modernes avec catégorisation automatique des dépenses, export comptable facilité, et intégration directe avec les logiciels de comptabilité. Elles simplifient considérablement le rapprochement bancaire mensuel.</p>
+
+  <h3>Gestion des notes de frais</h3>
+  <p>Des applications permettent de scanner vos tickets et reçus, d'extraire automatiquement les informations (montant, TVA, date, fournisseur) et de les intégrer directement dans votre comptabilité. Fini les boîtes à chaussures remplies de tickets illisibles en fin d'année.</p>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>Les outils digitaux ne remplacent pas un expert-comptable, mais ils vous font gagner un temps considérable sur les tâches répétitives. Choisissez des outils qui s'intègrent entre eux et avec le logiciel de votre comptable pour éviter les doubles saisies.</p>
+  </div>
+
+  <!-- SECTION 8 -->
+  <h2 id="section-8">Comment choisir son cabinet comptable</h2>
+
+  <p>Le choix d'un expert-comptable est une décision importante qui vous engage sur le long terme. Voici les critères à évaluer pour faire le bon choix :</p>
+
+  <ul>
+    <li><strong>La réactivité.</strong> Votre comptable doit être joignable et réactif. Lorsque vous avez une question urgente (contrôle fiscal, décision à prendre rapidement), vous devez pouvoir obtenir une réponse dans un délai raisonnable. Testez la réactivité dès les premiers échanges.</li>
+    <li><strong>La spécialisation sectorielle.</strong> Un cabinet qui connaît votre secteur d'activité sera plus pertinent dans ses conseils. Les enjeux comptables d'un e-commerçant, d'un artisan du BTP ou d'un consultant ne sont pas les mêmes.</li>
+    <li><strong>Les outils utilisés.</strong> Privilégiez un cabinet qui utilise des outils modernes (plateforme en ligne, application mobile, signature électronique). La digitalisation fluidifie les échanges et vous donne accès à vos données en temps réel.</li>
+    <li><strong>Le modèle tarifaire.</strong> Certains cabinets facturent au forfait mensuel, d'autres à l'heure ou à la mission. Un forfait clair et transparent est généralement préférable pour maîtriser votre budget. Demandez toujours un devis détaillé.</li>
+    <li><strong>La dimension conseil.</strong> Un bon expert-comptable ne se contente pas de tenir vos comptes : il vous conseille sur l'optimisation fiscale, la rémunération du dirigeant, les investissements, et anticipe les difficultés. C'est un véritable partenaire de gestion.</li>
+    <li><strong>La proximité.</strong> Même si beaucoup d'échanges se font en ligne, il est appréciable de pouvoir rencontrer son comptable en personne, notamment pour les points annuels ou les situations complexes.</li>
+  </ul>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>Chez L'Allié, nous combinons expertise comptable et accompagnement global. Notre équipe est réactive, digitalisée, et prend le temps de comprendre votre activité pour vous offrir un accompagnement sur mesure. Le premier échange est gratuit et sans engagement.</p>
+  </div>
+
+</div>
+
+<!-- ============ POUR ALLER PLUS LOIN ============ -->
+<section class="related-section">
+  <div class="related-inner">
+    <h2 class="section-title">Pour aller plus loin</h2>
+    <p class="section-subtitle">Explorez nos autres guides pour approfondir vos connaissances.</p>
+    <div class="guides-grid">
+      <div class="guide-card">
+        <div class="guide-thumb"><i data-lucide="book-open" width="48" height="48"></i></div>
+        <div class="guide-card-content">
+          <div class="guide-category">Création</div>
+          <h3>Comment choisir le bon statut juridique ?</h3>
+          <p>SARL, SAS, micro-entreprise... Tous les critères pour faire le bon choix.</p>
+          <a href="comment-choisir-statut-juridique.html" class="guide-link">Lire le guide <i data-lucide="arrow-right" width="14" height="14"></i></a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-thumb"><i data-lucide="scale" width="48" height="48"></i></div>
+        <div class="guide-card-content">
+          <div class="guide-category">Juridique</div>
+          <h3>SARL ou SAS : quelle structure pour vous ?</h3>
+          <p>Comparatif détaillé pour choisir la forme la plus adaptée à votre projet.</p>
+          <a href="sarl-ou-sas.html" class="guide-link">Lire le guide <i data-lucide="arrow-right" width="14" height="14"></i></a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-thumb"><i data-lucide="building-2" width="48" height="48"></i></div>
+        <div class="guide-card-content">
+          <div class="guide-category">Domiciliation</div>
+          <h3>Pourquoi domicilier son entreprise est stratégique</h3>
+          <p>Image, confidentialité, fiscalité : les vrais enjeux.</p>
+          <a href="pourquoi-domicilier-entreprise.html" class="guide-link">Lire le guide <i data-lucide="arrow-right" width="14" height="14"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h2>Besoin d'un expert-comptable de confiance ?</h2>
+    <p>Premier échange gratuit, sans engagement. On vous rappelle dans la journée.</p>
+    <div class="final-cta-contacts">
+      <a href="tel:0123456789" class="final-cta-contact"><i data-lucide="phone" width="18" height="18"></i> 01 23 45 67 89</a>
+      <a href="mailto:Lalliepartenaire@gmail.com" class="final-cta-contact"><i data-lucide="mail" width="18" height="18"></i> Lalliepartenaire@gmail.com</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=20+boulevard+de+la+Muette+Garges+les+Gonesse" target="_blank" class="final-cta-contact"><i data-lucide="map-pin" width="18" height="18"></i> 20 bd de la Muette, Garges</a>
+    </div>
+    <a href="../contact.html" class="btn-primary">Discutons de votre projet <i data-lucide="arrow-right" width="18" height="18"></i></a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../lallie.html" class="logo"><img src="../images/logo-lallie.png" alt="L'Allié" class="logo-img"></a>
+        <p>Votre partenaire de confiance pour toutes vos démarches administratives, comptables et juridiques.</p>
+        <div class="footer-contact">
+          <a href="tel:0123456789"><i data-lucide="phone" width="14" height="14"></i> 01 23 45 67 89</a>
+          <a href="mailto:Lalliepartenaire@gmail.com"><i data-lucide="mail" width="14" height="14"></i> Lalliepartenaire@gmail.com</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=20+boulevard+de+la+Muette+Garges+les+Gonesse" target="_blank"><i data-lucide="map-pin" width="14" height="14"></i> 20 bd de la Muette, Garges-lès-Gonesse</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Création d'entreprise</a></li>
+          <li><a href="#">Comptabilité</a></li>
+          <li><a href="#">Domiciliation</a></li>
+          <li><a href="#">Modification de statuts</a></li>
+          <li><a href="#">Création de site internet</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Entreprise</h4>
+        <ul>
+          <li><a href="#">À propos</a></li>
+          <li><a href="../guides.html">Nos guides</a></li>
+          <li><a href="#">Avis clients</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="../partenaire.html">Devenir partenaire</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">CGV / CGU</a></li>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">Gestion des cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 L'Allié — Tous droits réservés</div>
+      <div>Site conçu avec soin pour les entrepreneurs</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>

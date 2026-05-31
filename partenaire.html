@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devenir partenaire — L'Allié</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root {
+    --navy: #0F2C5C;
+    --navy-dark: #0A1F3D;
+    --accent: #2563EB;
+    --accent-hover: #1D4ED8;
+    --text: #1F2937;
+    --text-muted: #6B7280;
+    --bg-light: #F8FAFC;
+    --border: #E5E7EB;
+    --white: #FFFFFF;
+    --success: #10B981;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; background: var(--white); }
+  a { text-decoration: none; color: inherit; }
+
+  .topbar { background: var(--navy-dark); color: rgba(255,255,255,0.8); font-size: 13px; padding: 8px 0; }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+  .topbar-left { display: flex; gap: 20px; }
+  .topbar a { display: inline-flex; align-items: center; gap: 6px; }
+  .topbar a:hover { color: var(--white); }
+
+  header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .header-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+  .logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .logo-img {
+    height: 56px;
+    width: auto;
+    display: block;
+  }
+
+  .btn-partner-header {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 20px; border: 2px solid var(--navy); border-radius: 999px;
+    color: var(--navy); font-weight: 600; font-size: 14px; transition: all 0.2s; white-space: nowrap;
+  }
+  .btn-partner-header:hover { background: var(--navy); color: var(--white); }
+
+  nav ul { display: flex; align-items: center; list-style: none; gap: 4px; }
+  .nav-item { position: relative; }
+  .nav-item > a, .nav-item > button { display: flex; align-items: center; gap: 6px; padding: 14px 18px; color: var(--navy); font-weight: 600; font-size: 15px; background: none; border: none; cursor: pointer; font-family: inherit; transition: color 0.2s; }
+  .nav-item > a:hover, .nav-item > button:hover { color: var(--accent); }
+  .chevron { transition: transform 0.2s; }
+  .nav-item:hover .chevron { transform: rotate(180deg); }
+
+  .mega-menu { position: fixed; top: 122px; left: 0; right: 0; background: var(--white); box-shadow: 0 12px 32px rgba(0,0,0,0.12); border-top: 1px solid var(--border); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.25s ease; z-index: 99; }
+  .nav-item:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .mega-menu-inner { max-width: 1280px; margin: 0 auto; padding: 40px 24px; display: grid; gap: 32px; }
+  .mega-3col { grid-template-columns: repeat(3, 1fr); }
+  .mega-4col-eq { grid-template-columns: repeat(4, 1fr); }
+  .mega-4col { grid-template-columns: repeat(3, 1fr) 280px; }
+  .mega-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .mega-link { display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 8px; transition: all 0.15s; margin: 0 -12px; }
+  .mega-link:hover { background: var(--bg-light); transform: translateX(4px); }
+  .mega-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(37,99,235,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent); }
+  .mega-link-title { font-weight: 600; color: var(--navy); font-size: 14px; line-height: 1.3; }
+  .mega-link-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .mega-cta-card { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); color: var(--white); padding: 24px; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; }
+  .mega-cta-card h5 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 8px; }
+  .mega-cta-card p { font-size: 13px; opacity: 0.85; margin-bottom: 16px; }
+  .mega-cta-btn { background: var(--white); color: var(--navy); padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; transition: transform 0.2s; }
+  .mega-cta-btn:hover { transform: translateY(-2px); }
+
+  .header-actions { display: flex; align-items: center; gap: 12px; }
+  .btn-cta { background: var(--accent); color: var(--white); padding: 12px 24px; border-radius: 999px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
+  .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(37,99,235,0.4); }
+
+  /* PAGE HERO */
+  .page-hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); color: var(--white); padding: 60px 24px; text-align: center; }
+  .page-hero-inner { max-width: 700px; margin: 0 auto; }
+  .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; margin-bottom: 16px; font-weight: 700; }
+  .page-hero p { font-size: 17px; opacity: 0.9; line-height: 1.7; }
+  .partner-badge { display: inline-block; background: rgba(37,99,235,0.2); color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; padding: 6px 16px; border-radius: 999px; margin-bottom: 16px; text-transform: uppercase; }
+
+  /* PARTNER CONTENT */
+  .partner-content { padding: 60px 24px 80px; }
+  .partner-inner { max-width: 1280px; margin: 0 auto; }
+
+  .partner-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 32px; align-items: start; }
+
+  .partner-args { background: var(--bg-light); border: 1px solid var(--border); border-radius: 16px; padding: 32px; position: sticky; top: 110px; }
+  .partner-args h3 { font-size: 20px; margin-bottom: 24px; font-family: 'Playfair Display', serif; color: var(--navy); }
+  .partner-arg-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; font-size: 15px; line-height: 1.5; color: var(--text); }
+  .partner-arg-item:last-child { margin-bottom: 0; }
+  .partner-arg-item i { flex-shrink: 0; margin-top: 2px; color: var(--accent); }
+
+  .partner-form-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 36px; }
+  .partner-form-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--navy); margin-bottom: 24px; padding-bottom: 12px; border-bottom: 3px solid var(--accent); display: inline-block; }
+
+  .p-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .p-form-row.full { grid-template-columns: 1fr; }
+  .p-field { display: flex; flex-direction: column; gap: 6px; }
+  .p-field label { font-weight: 600; color: var(--navy); font-size: 14px; }
+  .p-field .hint { font-weight: 400; color: var(--text-muted); font-size: 12px; }
+
+  .p-field input[type="text"], .p-field input[type="email"], .p-field input[type="tel"],
+  .p-field input[type="url"], .p-field input[type="file"], .p-field select, .p-field textarea {
+    padding: 14px 16px; border: 1px solid var(--border); border-radius: 8px; font-size: 16px;
+    font-family: inherit; transition: all 0.2s; background: var(--white); color: var(--text); width: 100%;
+  }
+  .p-field input:focus, .p-field select:focus, .p-field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+  .p-field textarea { resize: vertical; min-height: 120px; }
+  .p-field input[type="file"] { padding: 12px; cursor: pointer; }
+
+  .p-radio-group { display: flex; gap: 16px; flex-wrap: wrap; }
+  .p-radio-option { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 15px; color: var(--text); }
+  .p-radio-option input { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+  .p-checkbox { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 14px; line-height: 1.5; color: var(--text-muted); margin-top: 8px; }
+  .p-checkbox input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--accent); cursor: pointer; flex-shrink: 0; }
+  .p-conditional { display: none; margin-top: 16px; }
+  .p-conditional.visible { display: block; }
+
+  .p-submit {
+    background: var(--accent); color: var(--white); padding: 16px 36px; border: none; border-radius: 999px;
+    font-weight: 700; font-size: 16px; font-family: inherit; cursor: pointer; display: inline-flex;
+    align-items: center; gap: 10px; transition: all 0.2s; box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+    width: 100%; justify-content: center; margin-top: 8px;
+  }
+  .p-submit:hover { background: var(--accent-hover); transform: translateY(-2px); }
+  .p-privacy { text-align: center; margin-top: 12px; font-size: 13px; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 6px; }
+
+  .p-success { display: none; background: linear-gradient(135deg, var(--navy) 0%, var(--accent) 100%); color: var(--white); padding: 48px; border-radius: 16px; text-align: center; }
+  .p-success.visible { display: block; }
+  .p-success h3 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 12px; }
+  .p-success p { opacity: 0.9; font-size: 15px; line-height: 1.7; }
+  .p-success-icon { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+
+  /* FOOTER */
+  footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 64px 24px 24px; }
+  .footer-inner { max-width: 1280px; margin: 0 auto; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand .logo {
+    margin-bottom: 16px;
+    display: block;
+  }
+  .footer-brand p { margin-bottom: 16px; font-size: 14px; line-height: 1.6; }
+  .footer-contact { display: flex; flex-direction: column; gap: 8px; }
+  .footer-contact a { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; }
+  .footer-col h4 { color: var(--white); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; font-weight: 700; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 12px; font-size: 14px; }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; flex-wrap: wrap; gap: 16px; }
+
+  @media (max-width: 1024px) {
+    .btn-partner-header { display: none; }
+    nav ul { display: none; }
+    .mega-4col, .mega-3col, .mega-4col-eq { grid-template-columns: 1fr; }
+    .partner-grid { grid-template-columns: 1fr; }
+    .partner-args { position: static; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .topbar { display: none; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .p-form-row { grid-template-columns: 1fr; }
+    .page-hero { padding: 48px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href="tel:0123456789"><i data-lucide="phone" width="14" height="14"></i> 01 23 45 67 89</a>
+      <a href="mailto:Lalliepartenaire@gmail.com"><i data-lucide="mail" width="14" height="14"></i> Lalliepartenaire@gmail.com</a>
+    </div>
+    <div>
+      <a href="https://www.google.com/maps/search/?api=1&query=20+boulevard+de+la+Muette+Garges+les+Gonesse" target="_blank" style="display:inline-flex;align-items:center;gap:6px"><i data-lucide="map-pin" width="14" height="14"></i> 20 bd de la Muette, Garges-lès-Gonesse</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="lallie.html" class="logo"><img src="images/logo-lallie.png" alt="L'Allié" class="logo-img"></a>
+    <a href="partenaire.html" class="btn-partner-header"><i data-lucide="handshake" width="16" height="16"></i> Devenez notre partenaire</a>
+    <nav>
+      <ul>
+        <li class="nav-item">
+          <button>Création d'entreprise <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-4col">
+              <div class="mega-col">
+                <h4>Par forme juridique</h4>
+                <a href="services/creation-societe.html" class="mega-link"><div class="mega-icon"><i data-lucide="rocket" width="20" height="20"></i></div><div><div class="mega-link-title">Création de société</div><div class="mega-link-desc">Trouvez la bonne structure pour votre projet</div></div></a>
+                <a href="services/creation-sas.html" class="mega-link"><div class="mega-icon"><i data-lucide="trending-up" width="20" height="20"></i></div><div><div class="mega-link-title">SAS</div><div class="mega-link-desc">Flexibilité et actionnariat libre</div></div></a>
+                <a href="services/creation-sasu.html" class="mega-link"><div class="mega-icon"><i data-lucide="user" width="20" height="20"></i></div><div><div class="mega-link-title">SASU</div><div class="mega-link-desc">Société unipersonnelle simplifiée</div></div></a>
+                <a href="services/creation-sarl.html" class="mega-link"><div class="mega-icon"><i data-lucide="building-2" width="20" height="20"></i></div><div><div class="mega-link-title">SARL</div><div class="mega-link-desc">Idéal pour une gestion familiale</div></div></a>
+                <a href="services/creation-sci.html" class="mega-link"><div class="mega-icon"><i data-lucide="home" width="20" height="20"></i></div><div><div class="mega-link-title">SCI</div><div class="mega-link-desc">Gestion patrimoniale immobilière</div></div></a>
+              </div>
+              <div class="mega-col">
+                <h4>Autres statuts</h4>
+                <a href="services/creation-micro-entreprise.html" class="mega-link"><div class="mega-icon"><i data-lucide="zap" width="20" height="20"></i></div><div><div class="mega-link-title">Micro-entreprise</div><div class="mega-link-desc">Le plus simple pour démarrer</div></div></a>
+                <a href="services/creation-eurl.html" class="mega-link"><div class="mega-icon"><i data-lucide="briefcase" width="20" height="20"></i></div><div><div class="mega-link-title">EURL</div><div class="mega-link-desc">Entreprise individuelle à responsabilité</div></div></a>
+                <a href="services/creation-association.html" class="mega-link"><div class="mega-icon"><i data-lucide="handshake" width="20" height="20"></i></div><div><div class="mega-link-title">Association</div><div class="mega-link-desc">Organisez votre projet collectif</div></div></a>
+                <a href="services/aide-choix-statut.html" class="mega-link"><div class="mega-icon"><i data-lucide="help-circle" width="20" height="20"></i></div><div><div class="mega-link-title">Aide au choix du statut</div><div class="mega-link-desc">Conseil personnalisé selon votre projet</div></div></a>
+              </div>
+              <div class="mega-col">
+                <h4>Par activité</h4>
+                <a href="#" class="mega-link"><div class="mega-icon"><i data-lucide="laptop" width="20" height="20"></i></div><div><div class="mega-link-title">Freelance / Consultant</div></div></a>
+                <a href="#" class="mega-link"><div class="mega-icon"><i data-lucide="shopping-cart" width="20" height="20"></i></div><div><div class="mega-link-title">E-commerce</div></div></a>
+                <a href="#" class="mega-link"><div class="mega-icon"><i data-lucide="hammer" width="20" height="20"></i></div><div><div class="mega-link-title">Artisan / BTP</div></div></a>
+                <a href="#" class="mega-link"><div class="mega-icon"><i data-lucide="store" width="20" height="20"></i></div><div><div class="mega-link-title">Commerce</div></div></a>
+                <a href="#" class="mega-link"><div class="mega-icon"><i data-lucide="stethoscope" width="20" height="20"></i></div><div><div class="mega-link-title">Profession libérale</div></div></a>
+              </div>
+              <div class="mega-cta-card">
+                <div><h5>Pas sûr de votre projet ?</h5><p>Discutons-en ensemble. Premier échange gratuit et sans engagement.</p></div>
+                <a href="contact.html" class="mega-cta-btn">Prendre rendez-vous <i data-lucide="arrow-right" width="14" height="14"></i></a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button>Comptabilité <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-4col-eq">
+              <div class="mega-col">
+                <h4>Suivi mensuel</h4>
+                <a href="services/tenue-comptable.html" class="mega-link"><div class="mega-icon"><i data-lucide="clipboard-list" width="20" height="20"></i></div><div><div class="mega-link-title">Tenue comptable</div><div class="mega-link-desc">Saisie et rapprochements</div></div></a>
+                <a href="services/tableaux-de-bord.html" class="mega-link"><div class="mega-icon"><i data-lucide="trending-up" width="20" height="20"></i></div><div><div class="mega-link-title">Tableaux de bord</div><div class="mega-link-desc">Pilotage en temps réel</div></div></a>
+                <a href="services/bilan-annuel.html" class="mega-link"><div class="mega-icon"><i data-lucide="briefcase-business" width="20" height="20"></i></div><div><div class="mega-link-title">Bilan annuel</div><div class="mega-link-desc">Clôture et déclarations</div></div></a>
+              </div>
+              <div class="mega-col">
+                <h4>Déclarations</h4>
+                <a href="services/declarations-tva.html" class="mega-link"><div class="mega-icon"><i data-lucide="file-text" width="20" height="20"></i></div><div><div class="mega-link-title">TVA</div><div class="mega-link-desc">Mensuelle ou trimestrielle</div></div></a>
+                <a href="services/declarations-urssaf.html" class="mega-link"><div class="mega-icon"><i data-lucide="euro" width="20" height="20"></i></div><div><div class="mega-link-title">URSSAF & charges</div><div class="mega-link-desc">Cotisations sociales</div></div></a>
+                <a href="services/declarations-impots.html" class="mega-link"><div class="mega-icon"><i data-lucide="files" width="20" height="20"></i></div><div><div class="mega-link-title">Impôts</div><div class="mega-link-desc">IS, IR, liasse fiscale</div></div></a>
+              </div>
+                            <div class="mega-col">
+                <h4>Facturation électronique</h4>
+                <a href="services/facturation-logiciel.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="receipt" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Logiciel de facturation</div>
+                    <div class="mega-link-desc">Solution conforme et adaptée</div>
+                  </div>
+                </a>
+                <a href="services/facturation-conformite.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="shield-check" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Mise en conformité</div>
+                    <div class="mega-link-desc">Respectez les obligations 2026</div>
+                  </div>
+                </a>
+                <a href="services/facturation-accompagnement.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="users" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Accompagnement</div>
+                    <div class="mega-link-desc">Formation et suivi personnalisé</div>
+                  </div>
+                </a>
+              </div>
+
+<div class="mega-col">
+                <h4>Pour qui ?</h4>
+                <a href="#" class="mega-link"><div class="mega-icon"><i data-lucide="building-2" width="20" height="20"></i></div><div><div class="mega-link-title">SAS / SARL</div></div></a>
+                <a href="#" class="mega-link"><div class="mega-icon"><i data-lucide="user" width="20" height="20"></i></div><div><div class="mega-link-title">SASU / EURL</div></div></a>
+                <a href="#" class="mega-link"><div class="mega-icon"><i data-lucide="zap" width="20" height="20"></i></div><div><div class="mega-link-title">Auto-entreprise</div></div></a>
+                <a href="#" class="mega-link"><div class="mega-icon"><i data-lucide="home" width="20" height="20"></i></div><div><div class="mega-link-title">SCI</div></div></a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button>Autres services <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-3col">
+              <div class="mega-col">
+                <h4>Domiciliation</h4>
+                <a href="services/domiciliation.html" class="mega-link"><div class="mega-icon"><i data-lucide="map-pin" width="20" height="20"></i></div><div><div class="mega-link-title">Domiciliation de société</div><div class="mega-link-desc">Adresse pro pour votre Kbis</div></div></a>
+                <a href="services/gestion-courrier.html" class="mega-link"><div class="mega-icon"><i data-lucide="mailbox" width="20" height="20"></i></div><div><div class="mega-link-title">Gestion du courrier</div><div class="mega-link-desc">Scan et réexpédition</div></div></a>
+              </div>
+              <div class="mega-col">
+                <h4>Formalités</h4>
+                <a href="services/modification-statuts.html" class="mega-link"><div class="mega-icon"><i data-lucide="refresh-cw" width="20" height="20"></i></div><div><div class="mega-link-title">Modification de statuts</div><div class="mega-link-desc">Changement de gérant, capital...</div></div></a>
+                <a href="services/transfert-siege.html" class="mega-link"><div class="mega-icon"><i data-lucide="truck" width="20" height="20"></i></div><div><div class="mega-link-title">Transfert de siège</div><div class="mega-link-desc">Déménagement de votre société</div></div></a>
+                <a href="services/fermeture-entreprise.html" class="mega-link"><div class="mega-icon"><i data-lucide="log-out" width="20" height="20"></i></div><div><div class="mega-link-title">Fermeture d'entreprise</div><div class="mega-link-desc">Dissolution et radiation</div></div></a>
+              </div>
+              <div class="mega-col">
+                <h4>Visibilité digitale</h4>
+                <a href="services/creation-site-internet.html" class="mega-link"><div class="mega-icon"><i data-lucide="globe" width="20" height="20"></i></div><div><div class="mega-link-title">Création de site internet</div><div class="mega-link-desc">Vitrine ou e-commerce</div></div></a>
+                <a href="services/referencement-google.html" class="mega-link"><div class="mega-icon"><i data-lucide="search" width="20" height="20"></i></div><div><div class="mega-link-title">Référencement Google</div><div class="mega-link-desc">SEO et présence locale</div></div></a>
+                <a href="services/identite-visuelle.html" class="mega-link"><div class="mega-icon"><i data-lucide="palette" width="20" height="20"></i></div><div><div class="mega-link-title">Identité visuelle</div><div class="mega-link-desc">Logo et charte graphique</div></div></a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item"><a href="lallie.html#guides">Guides</a></li>
+        <li class="nav-item"><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="rappel.html" class="btn-cta"><i data-lucide="phone" width="16" height="16"></i> Rappel gratuit</a>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="partner-badge">Réseau de partenaires</span>
+    <h1>Devenez notre partenaire</h1>
+    <p>Vous êtes un professionnel et partagez nos valeurs ? Rejoignez notre réseau d'experts. Ensemble, accompagnons les entrepreneurs vers la réussite.</p>
+  </div>
+</section>
+
+<!-- PARTNER CONTENT -->
+<section class="partner-content">
+  <div class="partner-inner">
+    <div class="partner-grid">
+      <!-- ARGUMENTS -->
+      <div class="partner-args">
+        <h3>Pourquoi nous rejoindre ?</h3>
+        <div class="partner-arg-item"><i data-lucide="users" width="22" height="22"></i> <span>Accédez à un flux régulier de clients qualifiés</span></div>
+        <div class="partner-arg-item"><i data-lucide="handshake" width="22" height="22"></i> <span>Collaborez avec une équipe qui valorise l'humain</span></div>
+        <div class="partner-arg-item"><i data-lucide="trending-up" width="22" height="22"></i> <span>Développez votre activité sans démarchage</span></div>
+        <div class="partner-arg-item"><i data-lucide="shield-check" width="22" height="22"></i> <span>Travaillez dans un cadre clair et transparent</span></div>
+        <div class="partner-arg-item"><i data-lucide="heart" width="22" height="22"></i> <span>Faites partie d'un réseau qui partage vos valeurs</span></div>
+      </div>
+
+      <!-- FORMULAIRE -->
+      <div class="partner-form-card">
+        <form id="partnerForm">
+          <h3>Candidature partenaire</h3>
+          <div class="p-form-row full">
+            <div class="p-field"><label>Civilité</label><div class="p-radio-group"><label class="p-radio-option"><input type="radio" name="p_civilite" value="M."> M.</label><label class="p-radio-option"><input type="radio" name="p_civilite" value="Mme"> Mme</label></div></div>
+          </div>
+          <div class="p-form-row">
+            <div class="p-field"><label>Prénom *</label><input type="text" name="p_prenom" id="p_prenom" required placeholder="Votre prénom"></div>
+            <div class="p-field"><label>Nom *</label><input type="text" name="p_nom" required placeholder="Votre nom"></div>
+          </div>
+          <div class="p-form-row">
+            <div class="p-field"><label>Email *</label><input type="email" name="p_email" required placeholder="votre@email.com"></div>
+            <div class="p-field"><label>Téléphone *</label><input type="tel" name="p_telephone" required placeholder="06 12 34 56 78"></div>
+          </div>
+          <div class="p-form-row full">
+            <div class="p-field">
+              <label>Votre métier / spécialité *</label>
+              <select name="p_metier" id="p_metier" required>
+                <option value="" disabled selected>Sélectionnez votre métier</option>
+                <option value="comptable">Expert-comptable / Comptable</option>
+                <option value="juriste">Juriste / Avocat</option>
+                <option value="community_manager">Community Manager</option>
+                <option value="dev_web">Développeur web / Webmaster</option>
+                <option value="graphiste">Graphiste / Designer</option>
+                <option value="redacteur">Rédacteur web / SEO</option>
+                <option value="consultant">Consultant / Coach business</option>
+                <option value="courtier">Courtier (assurance, banque, etc.)</option>
+                <option value="commercial">Commercial / Apporteur d'affaires</option>
+                <option value="autre">Autre (préciser)</option>
+              </select>
+            </div>
+          </div>
+          <div class="p-conditional" id="condMetierAutre">
+            <div class="p-form-row full"><div class="p-field"><label>Précisez votre métier</label><input type="text" name="p_metier_autre" placeholder="Votre métier ou spécialité"></div></div>
+          </div>
+          <div class="p-form-row">
+            <div class="p-field"><label>Statut</label><div class="p-radio-group" style="flex-direction:column;gap:10px"><label class="p-radio-option"><input type="radio" name="p_statut" value="independant" checked> Indépendant / Freelance</label><label class="p-radio-option"><input type="radio" name="p_statut" value="societe"> En société</label><label class="p-radio-option"><input type="radio" name="p_statut" value="salarie"> Salarié cherchant à se lancer</label></div></div>
+            <div class="p-field"><label>Années d'expérience</label><select name="p_experience"><option value="" disabled selected>Sélectionnez</option><option value="moins2">Moins de 2 ans</option><option value="2a5">2 à 5 ans</option><option value="5a10">5 à 10 ans</option><option value="plus10">Plus de 10 ans</option></select></div>
+          </div>
+          <div class="p-form-row">
+            <div class="p-field"><label>Zone géographique</label><input type="text" name="p_zone" placeholder="Ex: Île-de-France, Val-d'Oise, national..."></div>
+            <div class="p-field"><label>Site / Portfolio <span class="hint">(optionnel)</span></label><input type="url" name="p_site" placeholder="https://..."></div>
+          </div>
+          <div class="p-form-row full">
+            <div class="p-field"><label>Présentez-vous en quelques mots *</label><textarea name="p_message" required placeholder="Parlez-nous de votre activité, votre expertise, ce que vous pouvez apporter à nos clients..."></textarea></div>
+          </div>
+          <div class="p-form-row full">
+            <div class="p-field"><label>CV / Portfolio <span class="hint">(optionnel)</span></label><input type="file" name="p_cv" accept=".pdf,.docx,.jpg,.jpeg,.png"></div>
+          </div>
+          <label class="p-checkbox"><input type="checkbox" name="p_accepte" required> J'accepte d'être recontacté par L'Allié au sujet de ma candidature *</label>
+          <button type="submit" class="p-submit">Envoyer ma candidature <i data-lucide="send" width="18" height="18"></i></button>
+          <div class="p-privacy"><i data-lucide="lock" width="14" height="14"></i> Vos informations restent confidentielles. Nous étudions chaque candidature et revenons vers vous sous 48h.</div>
+        </form>
+        <div class="p-success" id="partnerSuccess">
+          <div class="p-success-icon"><i data-lucide="check" width="32" height="32"></i></div>
+          <h3>Merci <span id="partnerSuccessName"></span> !</h3>
+          <p>Votre candidature a bien été reçue.<br>Notre équipe l'étudiera et vous recontactera sous 48h.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="lallie.html" class="logo"><img src="images/logo-lallie.png" alt="L'Allié" class="logo-img"></a>
+        <p>Votre partenaire de confiance pour toutes vos démarches administratives, comptables et juridiques.</p>
+        <div class="footer-contact">
+          <a href="tel:0123456789"><i data-lucide="phone" width="14" height="14"></i> 01 23 45 67 89</a>
+          <a href="mailto:Lalliepartenaire@gmail.com"><i data-lucide="mail" width="14" height="14"></i> Lalliepartenaire@gmail.com</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=20+boulevard+de+la+Muette+Garges+les+Gonesse" target="_blank"><i data-lucide="map-pin" width="14" height="14"></i> 20 bd de la Muette, Garges-lès-Gonesse</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul>
+        <li><a href="services/creation-societe.html">Création d'entreprise</a></li>
+        <li><a href="services/tenue-comptable.html">Comptabilité</a></li>
+        <li><a href="services/domiciliation.html">Domiciliation</a></li>
+        <li><a href="services/modification-statuts.html">Modification de statuts</a></li>
+        <li><a href="services/creation-site-internet.html">Création de site internet</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Entreprise</h4><ul>
+        <li><a href="lallie.html">À propos</a></li>
+        <li><a href="lallie.html#guides">Nos guides</a></li>
+        <li><a href="#">Avis clients</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="partenaire.html">Devenir partenaire</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Légal</h4><ul>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">CGV / CGU</a></li>
+        <li><a href="#">Politique de confidentialité</a></li>
+        <li><a href="#">Gestion des cookies</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 L'Allié — Tous droits réservés</div>
+      <div>Site conçu avec soin pour les entrepreneurs</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+
+  // Conditional metier field
+  document.getElementById('p_metier').addEventListener('change', function() {
+    document.getElementById('condMetierAutre').classList.toggle('visible', this.value === 'autre');
+  });
+
+  // Form submit
+  document.getElementById('partnerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!this.checkValidity()) { this.reportValidity(); return; }
+    document.getElementById('partnerSuccessName').textContent = document.getElementById('p_prenom').value;
+    this.style.display = 'none';
+    var msg = document.getElementById('partnerSuccess');
+    msg.classList.add('visible');
+    lucide.createIcons();
+    window.scrollTo({ top: msg.offsetTop - 120, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>

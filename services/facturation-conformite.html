@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mise en conformité facturation électronique — L'Allié</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root {
+    --navy: #0F2C5C;
+    --navy-dark: #0A1F3D;
+    --accent: #2563EB;
+    --accent-hover: #1D4ED8;
+    --text: #1F2937;
+    --text-muted: #6B7280;
+    --bg-light: #F8FAFC;
+    --border: #E5E7EB;
+    --white: #FFFFFF;
+    --success: #10B981;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    background: var(--white);
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* ============ TOP BAR ============ */
+  .topbar {
+    background: var(--navy-dark);
+    color: rgba(255,255,255,0.8);
+    font-size: 13px;
+    padding: 8px 0;
+  }
+  .topbar-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar-left { display: flex; gap: 20px; }
+  .topbar a { display: inline-flex; align-items: center; gap: 6px; }
+  .topbar a:hover { color: var(--white); }
+
+  /* ============ HEADER ============ */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .logo-img {
+    height: 56px;
+    width: auto;
+    display: block;
+  }
+
+  .btn-partner-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 2px solid var(--navy);
+    border-radius: 999px;
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn-partner-header:hover {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  /* ============ NAVIGATION ============ */
+  nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 4px;
+  }
+
+  .nav-item { position: relative; }
+
+  .nav-item > a, .nav-item > button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 18px;
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.2s;
+  }
+
+  .nav-item > a:hover, .nav-item > button:hover { color: var(--accent); }
+
+  .chevron { transition: transform 0.2s; }
+  .nav-item:hover .chevron { transform: rotate(180deg); }
+
+  /* ============ MEGA-MENU ============ */
+  .mega-menu {
+    position: fixed;
+    top: 122px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    border-top: 1px solid var(--border);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.25s ease;
+    z-index: 99;
+  }
+
+  .nav-item:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .mega-menu-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: grid;
+    gap: 32px;
+  }
+
+  .mega-3col { grid-template-columns: repeat(3, 1fr); }
+  .mega-4col-eq { grid-template-columns: repeat(4, 1fr); }
+  .mega-4col { grid-template-columns: repeat(3, 1fr) 280px; }
+
+  .mega-col h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mega-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    margin: 0 -12px;
+  }
+
+  .mega-link:hover {
+    background: var(--bg-light);
+    transform: translateX(4px);
+  }
+
+  .mega-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(37, 99, 235, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+
+  .mega-link-title {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .mega-link-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .mega-cta-card {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color: var(--white);
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mega-cta-card h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .mega-cta-card p {
+    font-size: 13px;
+    opacity: 0.85;
+    margin-bottom: 16px;
+  }
+
+  .mega-cta-btn {
+    background: var(--white);
+    color: var(--navy);
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    transition: transform 0.2s;
+  }
+
+  .mega-cta-btn:hover { transform: translateY(-2px); }
+
+  /* ============ BOUTONS HEADER ============ */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-login {
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .btn-cta {
+    background: var(--accent);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+
+  .btn-cta:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+  }
+
+  /* ============ BREADCRUMB ============ */
+  .breadcrumb {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    font-size: 14px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .breadcrumb a {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .breadcrumb-sep { color: var(--border); }
+
+  /* ============ PAGE HERO ============ */
+  .page-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color: var(--white);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .page-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .page-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .page-hero p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 36px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .page-hero-ctas {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-hero-primary {
+    background: var(--white);
+    color: var(--navy);
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+
+  .btn-hero-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  }
+
+  .btn-hero-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 16px;
+    border: 2px solid rgba(255,255,255,0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+
+  .btn-hero-outline:hover {
+    border-color: var(--white);
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* ============ SECTION "C'EST POUR VOUS SI" ============ */
+  .for-you {
+    padding: 80px 24px;
+  }
+
+  .for-you-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    color: var(--navy);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    color: var(--text-muted);
+    font-size: 17px;
+    margin-bottom: 48px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .for-you-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .for-you-card {
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.2s;
+  }
+
+  .for-you-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+
+  .for-you-icon {
+    width: 52px;
+    height: 56px;
+    border-radius: 12px;
+    background: rgba(37, 99, 235, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .for-you-card h3 {
+    color: var(--navy);
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+
+  .for-you-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ============ ACCOMPAGNEMENT ============ */
+  .accompagnement {
+    background: var(--bg-light);
+    padding: 80px 24px;
+  }
+
+  .accompagnement-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .steps-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step-item {
+    display: flex;
+    gap: 24px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+
+  .step-item:last-child { border-bottom: none; }
+
+  .step-number {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .step-content h3 {
+    color: var(--navy);
+    font-size: 18px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .step-content p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .step-icon {
+    color: var(--accent);
+  }
+
+  /* ============ POURQUOI NOUS ============ */
+  .why-us {
+    padding: 80px 24px;
+  }
+
+  .why-us-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 32px;
+  }
+
+  .why-us-card {
+    text-align: center;
+    padding: 32px 20px;
+  }
+
+  .why-us-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+  }
+
+  .why-us-card h3 {
+    color: var(--navy);
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .why-us-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ============ FAQ ============ */
+  .faq {
+    background: var(--bg-light);
+    padding: 80px 24px;
+  }
+
+  .faq-inner { max-width: 800px; margin: 0 auto; }
+
+  .faq-list { margin-top: 40px; }
+
+  .faq-item { border-bottom: 1px solid var(--border); }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    text-align: left;
+  }
+
+  .faq-toggle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .faq-item.open .faq-toggle {
+    background: var(--accent);
+    color: var(--white);
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 500px;
+    padding-bottom: 24px;
+  }
+
+  /* ============ CTA CONTACT ============ */
+  .cta-contact {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color: var(--white);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .cta-contact-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .cta-contact h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    margin-bottom: 16px;
+  }
+
+  .cta-contact > .cta-contact-inner > p {
+    opacity: 0.9;
+    font-size: 18px;
+    margin-bottom: 48px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 36px 28px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .contact-card:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-4px);
+  }
+
+  .contact-card-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .contact-card p {
+    opacity: 0.85;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .contact-card-btn {
+    background: var(--white);
+    color: var(--navy);
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+
+  .contact-card-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  /* ============ SERVICES COMPLÉMENTAIRES ============ */
+  .related {
+    padding: 80px 24px;
+  }
+
+  .related-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .related-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.2s;
+  }
+
+  .related-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+
+  .related-card-icon {
+    width: 52px;
+    height: 56px;
+    border-radius: 12px;
+    background: rgba(37, 99, 235, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .related-card h3 {
+    color: var(--navy);
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .related-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .related-link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--navy-dark);
+    color: rgba(255,255,255,0.7);
+    padding: 64px 24px 24px;
+  }
+
+  .footer-inner { max-width: 1280px; margin: 0 auto; }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand .logo {
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .footer-brand p {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .footer-col h4 {
+    color: var(--white);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col li {
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+
+  .footer-col a:hover { color: var(--white); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1024px) {
+    .btn-partner-header { display: none; }
+    nav ul { display: none; }
+    .mega-4col, .mega-3col, .mega-4col-eq { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .contact-cards { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .topbar { display: none; }
+    .header-actions .btn-login { display: none; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .page-hero { padding: 60px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href="tel:0123456789"><i data-lucide="phone" width="14" height="14"></i> 01 23 45 67 89</a>
+      <a href="mailto:Lalliepartenaire@gmail.com"><i data-lucide="mail" width="14" height="14"></i> Lalliepartenaire@gmail.com</a>
+    </div>
+    <div>
+      <a href="https://www.google.com/maps/search/?api=1&query=20+boulevard+de+la+Muette+Garges+les+Gonesse" target="_blank" style="display:inline-flex;align-items:center;gap:6px"><i data-lucide="map-pin" width="14" height="14"></i> 20 bd de la Muette, Garges-lès-Gonesse</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="header-inner">
+    <a href="../lallie.html" class="logo"><img src="../images/logo-lallie.png" alt="L'Allié" class="logo-img"></a>
+
+    <a href="../partenaire.html" class="btn-partner-header"><i data-lucide="handshake" width="16" height="16"></i> Devenez notre partenaire</a>
+
+    <nav>
+      <ul>
+        <li class="nav-item">
+          <button>Création d'entreprise <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-4col">
+              <div class="mega-col">
+                <h4>Par forme juridique</h4>
+                <a href="creation-societe.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="rocket" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Création de société</div>
+                    <div class="mega-link-desc">Trouvez la bonne structure pour votre projet</div>
+                  </div>
+                </a>
+                <a href="creation-sas.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="trending-up" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">SAS</div>
+                    <div class="mega-link-desc">Flexibilité et actionnariat libre</div>
+                  </div>
+                </a>
+                <a href="creation-sasu.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="user" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">SASU</div>
+                    <div class="mega-link-desc">Société unipersonnelle simplifiée</div>
+                  </div>
+                </a>
+                <a href="creation-sarl.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="building-2" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">SARL</div>
+                    <div class="mega-link-desc">Idéal pour une gestion familiale</div>
+                  </div>
+                </a>
+                <a href="creation-sci.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="home" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">SCI</div>
+                    <div class="mega-link-desc">Gestion patrimoniale immobilière</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Autres statuts</h4>
+                <a href="creation-micro-entreprise.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="zap" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Micro-entreprise</div>
+                    <div class="mega-link-desc">Le plus simple pour démarrer</div>
+                  </div>
+                </a>
+                <a href="creation-eurl.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="briefcase" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">EURL</div>
+                    <div class="mega-link-desc">Entreprise individuelle à responsabilité</div>
+                  </div>
+                </a>
+                <a href="creation-association.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="handshake" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Association</div>
+                    <div class="mega-link-desc">Organisez votre projet collectif</div>
+                  </div>
+                </a>
+                <a href="aide-choix-statut.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="help-circle" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Aide au choix du statut</div>
+                    <div class="mega-link-desc">Conseil personnalisé selon votre projet</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Par activité</h4>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="laptop" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Freelance / Consultant</div>
+                  </div>
+                </a>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="shopping-cart" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">E-commerce</div>
+                  </div>
+                </a>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="hammer" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Artisan / BTP</div>
+                  </div>
+                </a>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="store" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Commerce</div>
+                  </div>
+                </a>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="stethoscope" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Profession libérale</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="mega-cta-card">
+                <div>
+                  <h5>Pas sûr de votre projet ?</h5>
+                  <p>Discutons-en ensemble. Premier échange gratuit et sans engagement.</p>
+                </div>
+                <a href="../contact.html" class="mega-cta-btn">Prendre rendez-vous <i data-lucide="arrow-right" width="14" height="14"></i></a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <button>Comptabilité <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-4col-eq">
+              <div class="mega-col">
+                <h4>Suivi mensuel</h4>
+                <a href="tenue-comptable.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="clipboard-list" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Tenue comptable</div>
+                    <div class="mega-link-desc">Saisie et rapprochements</div>
+                  </div>
+                </a>
+                <a href="tableaux-de-bord.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="trending-up" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Tableaux de bord</div>
+                    <div class="mega-link-desc">Pilotage en temps réel</div>
+                  </div>
+                </a>
+                <a href="bilan-annuel.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="briefcase-business" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Bilan annuel</div>
+                    <div class="mega-link-desc">Clôture et déclarations</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Déclarations</h4>
+                <a href="declarations-tva.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="file-text" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">TVA</div>
+                    <div class="mega-link-desc">Mensuelle ou trimestrielle</div>
+                  </div>
+                </a>
+                <a href="declarations-urssaf.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="euro" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">URSSAF & charges</div>
+                    <div class="mega-link-desc">Cotisations sociales</div>
+                  </div>
+                </a>
+                <a href="declarations-impots.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="files" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Impôts</div>
+                    <div class="mega-link-desc">IS, IR, liasse fiscale</div>
+                  </div>
+                </a>
+              </div>
+
+                            <div class="mega-col">
+                <h4>Facturation électronique</h4>
+                <a href="facturation-logiciel.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="receipt" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Logiciel de facturation</div>
+                    <div class="mega-link-desc">Solution conforme et adaptée</div>
+                  </div>
+                </a>
+                <a href="facturation-conformite.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="shield-check" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Mise en conformité</div>
+                    <div class="mega-link-desc">Respectez les obligations 2026</div>
+                  </div>
+                </a>
+                <a href="facturation-accompagnement.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="users" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Accompagnement</div>
+                    <div class="mega-link-desc">Formation et suivi personnalisé</div>
+                  </div>
+                </a>
+              </div>
+
+<div class="mega-col">
+                <h4>Pour qui ?</h4>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="building-2" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">SAS / SARL</div>
+                  </div>
+                </a>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="user" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">SASU / EURL</div>
+                  </div>
+                </a>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="zap" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Auto-entreprise</div>
+                  </div>
+                </a>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="home" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">SCI</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <button>Autres services <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-3col">
+              <div class="mega-col">
+                <h4>Domiciliation</h4>
+                <a href="domiciliation.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="map-pin" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Domiciliation de société</div>
+                    <div class="mega-link-desc">Adresse pro pour votre Kbis</div>
+                  </div>
+                </a>
+                <a href="gestion-courrier.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="mailbox" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Gestion du courrier</div>
+                    <div class="mega-link-desc">Scan et réexpédition</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Formalités</h4>
+                <a href="modification-statuts.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="refresh-cw" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Modification de statuts</div>
+                    <div class="mega-link-desc">Changement de gérant, capital...</div>
+                  </div>
+                </a>
+                <a href="transfert-siege.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="truck" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Transfert de siège</div>
+                    <div class="mega-link-desc">Déménagement de votre société</div>
+                  </div>
+                </a>
+                <a href="fermeture-entreprise.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="log-out" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Fermeture d'entreprise</div>
+                    <div class="mega-link-desc">Dissolution et radiation</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Visibilité digitale</h4>
+                <a href="creation-site-internet.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="globe" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Création de site internet</div>
+                    <div class="mega-link-desc">Vitrine ou e-commerce</div>
+                  </div>
+                </a>
+                <a href="referencement-google.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="search" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Référencement Google</div>
+                    <div class="mega-link-desc">SEO et présence locale</div>
+                  </div>
+                </a>
+                <a href="identite-visuelle.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="palette" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Identité visuelle</div>
+                    <div class="mega-link-desc">Logo et charte graphique</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="../lallie.html#guides">Guides</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="../contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="../rappel.html" class="btn-cta"><i data-lucide="phone" width="16" height="16"></i> Rappel gratuit</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ BREADCRUMB ============ -->
+<div class="breadcrumb">
+  <a href="../lallie.html">Accueil</a>
+  <span class="breadcrumb-sep"><i data-lucide="chevron-right" width="14" height="14"></i></span>
+  <a href="facturation-conformite.html">Services</a>
+  <span class="breadcrumb-sep"><i data-lucide="chevron-right" width="14" height="14"></i></span>
+  <span>Mise en conformité</span>
+</div>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Mise en conformité avec la facturation électronique</h1>
+    <p>PDP, Chorus Pro, Factur-X, UBL... La réforme française de la facturation électronique impose de nouvelles règles. Nous vous accompagnons pour mettre votre entreprise en conformité sans stress et sans interruption d'activité.</p>
+    <div class="page-hero-ctas">
+      <a href="../contact.html" class="btn-hero-primary"><i data-lucide="arrow-right" width="18" height="18"></i> Demander un diagnostic gratuit</a>
+      <a href="tel:0123456789" class="btn-hero-outline"><i data-lucide="phone" width="18" height="18"></i> Nous appeler</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ C'EST POUR VOUS SI ============ -->
+<section class="for-you">
+  <div class="for-you-inner">
+    <h2 class="section-title">C'est pour vous si...</h2>
+    <p class="section-subtitle">Vous êtes concerné par au moins une de ces situations.</p>
+    <div class="for-you-grid">
+      <div class="for-you-card">
+        <div class="for-you-icon"><i data-lucide="alert-triangle" width="28" height="28"></i></div>
+        <h3>Vous ne savez pas si vous êtes conforme</h3>
+        <p>Les exigences de la réforme sont techniques et évolutives. Nous auditons votre situation actuelle et vous donnons une réponse claire.</p>
+      </div>
+      <div class="for-you-card">
+        <div class="for-you-icon"><i data-lucide="shield-alert" width="28" height="28"></i></div>
+        <h3>Vous craignez les pénalités</h3>
+        <p>Le non-respect des obligations expose à des sanctions financières. Anticipez dès maintenant pour éviter les mauvaises surprises.</p>
+      </div>
+      <div class="for-you-card">
+        <div class="for-you-icon"><i data-lucide="calendar" width="28" height="28"></i></div>
+        <h3>Vous voulez anticiper les obligations</h3>
+        <p>Ne pas attendre le dernier moment, c'est la meilleure stratégie. La mise en conformité prend du temps et nécessite des ajustements techniques.</p>
+      </div>
+      <div class="for-you-card">
+        <div class="for-you-icon"><i data-lucide="landmark" width="28" height="28"></i></div>
+        <h3>Vous travaillez avec le secteur public</h3>
+        <p>Les marchés publics imposent déjà la facturation électronique via Chorus Pro. Nous vous aidons à maîtriser cette plateforme.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOTRE ACCOMPAGNEMENT ============ -->
+<section class="accompagnement">
+  <div class="accompagnement-inner">
+    <h2 class="section-title">Notre accompagnement pas à pas</h2>
+    <p class="section-subtitle">Un processus structuré pour vous mettre en conformité sereinement.</p>
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3><i data-lucide="search" width="20" height="20" class="step-icon"></i> Diagnostic complet</h3>
+          <p>Nous analysons l'intégralité de votre processus de facturation : logiciels utilisés, formats de factures, circuits de validation, archivage. Ce diagnostic identifie précisément les écarts avec la réglementation.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3><i data-lucide="file-check" width="20" height="20" class="step-icon"></i> Identification des écarts</h3>
+          <p>À partir du diagnostic, nous établissons un rapport détaillé des points de non-conformité et des actions correctives à mener, classées par priorité et par échéance réglementaire.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3><i data-lucide="server" width="20" height="20" class="step-icon"></i> Choix d'une PDP</h3>
+          <p>Nous vous guidons dans le choix d'une Plateforme de Dématérialisation Partenaire adaptée à votre volume de factures, votre secteur et votre budget. Comparatif objectif et transparent.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3><i data-lucide="file-code" width="20" height="20" class="step-icon"></i> Mise en place du format Factur-X</h3>
+          <p>Nous configurons votre système pour émettre des factures au format Factur-X (PDF enrichi de données structurées), le standard français de la facturation électronique.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3><i data-lucide="link" width="20" height="20" class="step-icon"></i> Connexion comptable</h3>
+          <p>Nous assurons la liaison entre votre logiciel de facturation, votre PDP et votre expert-comptable. Les flux de données sont automatisés pour éliminer les doubles saisies.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <h3><i data-lucide="book-open" width="20" height="20" class="step-icon"></i> Documentation et procédures</h3>
+          <p>Nous rédigeons les procédures internes adaptées à votre organisation : qui fait quoi, comment, avec quels outils. Votre équipe dispose d'un référentiel clair.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">7</div>
+        <div class="step-content">
+          <h3><i data-lucide="refresh-cw" width="20" height="20" class="step-icon"></i> Audit régulier de conformité</h3>
+          <p>La réglementation évolue. Nous effectuons des audits périodiques pour vérifier que votre conformité est maintenue et vous alerter sur les nouvelles obligations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POURQUOI NOUS ============ -->
+<section class="why-us">
+  <div class="why-us-inner">
+    <h2 class="section-title">Pourquoi nous choisir ?</h2>
+    <p class="section-subtitle">Un accompagnement expert, pragmatique et dans la durée.</p>
+    <div class="why-us-grid">
+      <div class="why-us-card">
+        <div class="why-us-icon"><i data-lucide="zap" width="36" height="36"></i></div>
+        <h3>Expertise réglementaire</h3>
+        <p>Notre équipe suit en permanence l'évolution de la réforme française. Vous bénéficiez de conseils toujours à jour.</p>
+      </div>
+      <div class="why-us-card">
+        <div class="why-us-icon"><i data-lucide="handshake" width="36" height="36"></i></div>
+        <h3>Approche pragmatique</h3>
+        <p>Pas de jargon inutile. On vous explique clairement ce qui doit changer, pourquoi, et comment le faire concrètement.</p>
+      </div>
+      <div class="why-us-card">
+        <div class="why-us-icon"><i data-lucide="shield" width="36" height="36"></i></div>
+        <h3>Zéro interruption</h3>
+        <p>La mise en conformité se fait sans arrêter votre activité. Nous planifions chaque étape pour minimiser l'impact sur votre quotidien.</p>
+      </div>
+      <div class="why-us-card">
+        <div class="why-us-icon"><i data-lucide="gem" width="36" height="36"></i></div>
+        <h3>Suivi dans la durée</h3>
+        <p>La conformité n'est pas un one-shot. Nous vous accompagnons dans la durée avec des audits réguliers et une veille permanente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="faq-inner">
+    <h2 class="section-title">Questions fréquentes</h2>
+    <p class="section-subtitle">Tout ce que vous devez savoir sur la mise en conformité.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question"><span>Qu'est-ce qu'une PDP (Plateforme de Dématérialisation Partenaire) ?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-answer"><p>Une PDP est un opérateur agréé par l'administration fiscale française qui sert d'intermédiaire pour l'émission, la réception et la transmission des factures électroniques. Elle garantit la conformité des échanges et assure la transmission des données à l'administration.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Qu'est-ce que le format Factur-X ?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-answer"><p>Factur-X est un format hybride de facture électronique qui combine un PDF lisible par l'humain et des données XML structurées lisibles par les machines. C'est le standard franco-allemand adopté par la réforme française.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Mon entreprise est-elle déjà concernée par l'obligation ?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-answer"><p>La réforme se déploie progressivement selon la taille de l'entreprise. Les grandes entreprises sont concernées en premier, puis les ETI, les PME et enfin les micro-entreprises. Quelle que soit votre taille, il est recommandé de commencer à vous préparer dès maintenant.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Que risque-t-on en cas de non-conformité ?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-answer"><p>Des sanctions financières sont prévues pour les entreprises qui ne respectent pas les obligations de facturation électronique. Au-delà des pénalités, vos clients et fournisseurs conformes pourraient refuser vos factures non conformes, bloquant vos encaissements.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Dois-je changer tout mon système de facturation ?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-answer"><p>Pas nécessairement. Dans de nombreux cas, une mise à jour de votre logiciel existant et la connexion à une PDP suffisent. Nous évaluons votre situation et ne recommandons un changement complet que si c'est vraiment nécessaire.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Combien de temps prend une mise en conformité ?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-answer"><p>Comptez entre 2 et 8 semaines selon la complexité de votre situation. Une petite structure avec un logiciel moderne sera conforme rapidement. Une entreprise avec des systèmes multiples nécessitera plus de temps. Notre diagnostic initial vous donne un calendrier précis.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA CONTACT ============ -->
+<section class="cta-contact" id="contact">
+  <div class="cta-contact-inner">
+    <h2>Parlons de votre conformité</h2>
+    <p style="opacity:0.9;font-size:18px;margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto">Premier échange gratuit, sans engagement. On vous rappelle dans la journée.</p>
+
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="contact-card-icon"><i data-lucide="phone" width="24" height="24"></i></div>
+        <h3>Nous appeler</h3>
+        <p>01 23 45 67 89</p>
+        <a href="tel:0123456789" class="contact-card-btn"><i data-lucide="phone" width="14" height="14"></i> Appeler maintenant</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon"><i data-lucide="mail" width="24" height="24"></i></div>
+        <h3>Nous écrire</h3>
+        <p>Lalliepartenaire@gmail.com</p>
+        <a href="mailto:Lalliepartenaire@gmail.com" class="contact-card-btn"><i data-lucide="mail" width="14" height="14"></i> Envoyer un email</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon"><i data-lucide="calendar" width="24" height="24"></i></div>
+        <h3>Prendre rendez-vous</h3>
+        <p>Réservez un créneau en ligne</p>
+        <a href="mailto:Lalliepartenaire@gmail.com?subject=Demande%20de%20rendez-vous" class="contact-card-btn"><i data-lucide="calendar" width="14" height="14"></i> Choisir un créneau</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES COMPLÉMENTAIRES ============ -->
+<section class="related">
+  <div class="related-inner">
+    <h2 class="section-title">Ces services peuvent aussi vous intéresser</h2>
+    <p class="section-subtitle">Complétez votre mise en conformité avec nos autres accompagnements.</p>
+    <div class="related-grid">
+      <a href="facturation-logiciel.html" class="related-card">
+        <div class="related-card-icon"><i data-lucide="receipt" width="28" height="28"></i></div>
+        <h3>Logiciel de facturation</h3>
+        <p>Choisissez le logiciel de facturation le plus adapté à votre activité avec notre accompagnement personnalisé.</p>
+        <span class="related-link">Découvrir <i data-lucide="arrow-right" width="14" height="14"></i></span>
+      </a>
+      <a href="facturation-accompagnement.html" class="related-card">
+        <div class="related-card-icon"><i data-lucide="users" width="28" height="28"></i></div>
+        <h3>Accompagnement et formation</h3>
+        <p>Formez votre équipe à la facturation électronique et gagnez en autonomie au quotidien.</p>
+        <span class="related-link">Découvrir <i data-lucide="arrow-right" width="14" height="14"></i></span>
+      </a>
+      <a href="tenue-comptable.html" class="related-card">
+        <div class="related-card-icon"><i data-lucide="clipboard-list" width="28" height="28"></i></div>
+        <h3>Comptabilité & suivi</h3>
+        <p>Intégrez votre facturation électronique à votre comptabilité pour un pilotage optimal.</p>
+        <span class="related-link">Découvrir <i data-lucide="arrow-right" width="14" height="14"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../lallie.html" class="logo"><img src="../images/logo-lallie.png" alt="L'Allié" class="logo-img"></a>
+        <p>Votre partenaire de confiance pour toutes vos démarches administratives, comptables et juridiques.</p>
+        <div class="footer-contact">
+          <a href="tel:0123456789"><i data-lucide="phone" width="14" height="14"></i> 01 23 45 67 89</a>
+          <a href="mailto:Lalliepartenaire@gmail.com"><i data-lucide="mail" width="14" height="14"></i> Lalliepartenaire@gmail.com</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=20+boulevard+de+la+Muette+Garges+les+Gonesse" target="_blank"><i data-lucide="map-pin" width="14" height="14"></i> 20 bd de la Muette, Garges-lès-Gonesse</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="creation-societe.html">Création d'entreprise</a></li>
+          <li><a href="tenue-comptable.html">Comptabilité</a></li>
+          <li><a href="domiciliation.html">Domiciliation</a></li>
+          <li><a href="modification-statuts.html">Modification de statuts</a></li>
+          <li><a href="creation-site-internet.html">Création de site internet</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Entreprise</h4>
+        <ul>
+          <li><a href="../lallie.html">À propos</a></li>
+          <li><a href="../lallie.html#guides">Nos guides</a></li>
+          <li><a href="#">Avis clients</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">CGV / CGU</a></li>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">Gestion des cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 L'Allié — Tous droits réservés</div>
+      <div>Site conçu avec soin pour les entrepreneurs</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Initialize Lucide icons
+  lucide.createIcons();
+
+  // FAQ
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>

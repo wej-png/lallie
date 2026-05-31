@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pourquoi domicilier son entreprise est stratégique ? — L'Allié</title>
+<meta name="description" content="Découvrez pourquoi la domiciliation d'entreprise est une décision stratégique : image professionnelle, vie privée, fiscalité, gestion du courrier.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root {
+    --navy: #0F2C5C;
+    --navy-dark: #06152E;
+    --navy-deep: #0A1F3D;
+    --accent: #2E7CF6;
+    --accent-hover: #1B6AE0;
+    --accent-glow: rgba(46, 124, 246, 0.25);
+    --text: #FFFFFF;
+    --text-muted: #A8B8D0;
+    --bg-dark: #06152E;
+    --bg-section: #0A1F3D;
+    --bg-card: rgba(255, 255, 255, 0.04);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-light: rgba(255, 255, 255, 0.12);
+    --white: #FFFFFF;
+    --success: #10B981;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    background: var(--bg-dark);
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* ============ TOP BAR ============ */
+  .topbar {
+    background: rgba(6, 21, 46, 0.8);
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar-left { display: flex; gap: 20px; }
+  .topbar a { display: inline-flex; align-items: center; gap: 6px; }
+  .topbar a:hover { color: var(--white); }
+
+  /* ============ HEADER ============ */
+  header {
+    background: rgba(10, 31, 61, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .logo { display: flex; align-items: center; flex-shrink: 0; }
+  .logo-img { height: 56px; width: auto; display: block; }
+
+  .btn-partner-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 999px;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .btn-partner-header:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ============ NAVIGATION ============ */
+  nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 4px;
+  }
+
+  .nav-item { position: relative; }
+
+  .nav-item > a, .nav-item > button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 18px;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.2s;
+  }
+
+  .nav-item > a:hover, .nav-item > button:hover { color: var(--accent); }
+
+  .chevron { transition: transform 0.2s; }
+  .nav-item:hover .chevron { transform: rotate(180deg); }
+
+  /* ============ MEGA-MENU ============ */
+  .mega-menu {
+    position: fixed;
+    top: 122px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    border-top: 1px solid #E5E7EB;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.25s ease;
+    z-index: 99;
+  }
+
+  .nav-item:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .mega-menu-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: grid;
+    gap: 32px;
+  }
+
+  .mega-3col { grid-template-columns: repeat(3, 1fr); }
+  .mega-4col-eq { grid-template-columns: repeat(4, 1fr); }
+  .mega-4col { grid-template-columns: repeat(3, 1fr) 280px; }
+
+  .mega-col h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #6B7280;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .mega-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    margin: 0 -12px;
+  }
+
+  .mega-link:hover {
+    background: #F8FAFC;
+    transform: translateX(4px);
+  }
+
+  .mega-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(46, 124, 246, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+
+  .mega-link-title {
+    font-weight: 600;
+    color: #0F2C5C;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .mega-link-desc {
+    font-size: 12px;
+    color: #6B7280;
+    margin-top: 2px;
+  }
+
+  .mega-cta-card {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color: var(--white);
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mega-cta-card h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .mega-cta-card p {
+    font-size: 13px;
+    opacity: 0.85;
+    margin-bottom: 16px;
+  }
+
+  .mega-cta-btn {
+    background: var(--white);
+    color: var(--navy);
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    transition: transform 0.2s;
+  }
+
+  .mega-cta-btn:hover { transform: translateY(-2px); }
+
+  /* ============ HEADER ACTIONS ============ */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-cta {
+    background: var(--accent);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px var(--accent-glow);
+  }
+
+  .btn-cta:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 28px var(--accent-glow);
+  }
+
+  /* ============ BREADCRUMB ============ */
+  .breadcrumb {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    font-size: 14px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .breadcrumb a { color: var(--text-muted); transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--accent); }
+  .breadcrumb .separator { opacity: 0.4; }
+  .breadcrumb .current { color: var(--white); font-weight: 500; }
+
+  /* ============ GUIDE HERO ============ */
+  .guide-hero {
+    background: var(--navy);
+    padding: 60px 24px 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .guide-hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(46,124,246,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .guide-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .guide-badge {
+    display: inline-block;
+    background: rgba(46, 124, 246, 0.15);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+
+  .guide-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .guide-hero-subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .guide-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .guide-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .guide-meta-item i { color: var(--accent); }
+
+  /* ============ TABLE OF CONTENTS ============ */
+  .toc-section {
+    max-width: 800px;
+    margin: -30px auto 0;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .toc-card {
+    background: var(--bg-section);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .toc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .toc-title i { color: var(--accent); }
+
+  .toc-list {
+    list-style: none;
+    counter-reset: toc;
+  }
+
+  .toc-list li {
+    counter-increment: toc;
+    margin-bottom: 12px;
+  }
+
+  .toc-list li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+
+  .toc-list li a:hover {
+    color: var(--accent);
+    background: rgba(46, 124, 246, 0.06);
+  }
+
+  .toc-list li a::before {
+    content: counter(toc);
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: rgba(46, 124, 246, 0.12);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ============ GUIDE BODY ============ */
+  .guide-body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+
+  .guide-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--white);
+    margin-bottom: 20px;
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    line-height: 1.3;
+  }
+
+  .guide-body h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .guide-body h3 {
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 14px;
+    margin-top: 32px;
+    font-weight: 700;
+  }
+
+  .guide-body p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .guide-body ul, .guide-body ol {
+    margin-bottom: 24px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .guide-body ul li, .guide-body ol li {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .guide-body ul li::before {
+    content: '';
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.15);
+    flex-shrink: 0;
+    margin-top: 3px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* ============ CALLOUT ============ */
+  .callout {
+    background: rgba(46, 124, 246, 0.08);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+
+  .callout-title {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 15px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .callout p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* ============ COMPARISON TABLE ============ */
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 32px 0;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .comparison-table thead th {
+    background: var(--bg-section);
+    color: var(--white);
+    font-weight: 700;
+    padding: 16px 18px;
+    text-align: left;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  .comparison-table tbody td {
+    padding: 14px 18px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .comparison-table tbody tr:last-child td { border-bottom: none; }
+
+  .comparison-table tbody tr:hover td {
+    background: rgba(46, 124, 246, 0.04);
+  }
+
+  .comparison-table tbody td:first-child {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  /* ============ MID-ARTICLE CTA ============ */
+  .mid-cta {
+    background: linear-gradient(135deg, var(--accent) 0%, #1B6AE0 100%);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    margin: 48px 0;
+  }
+
+  .mid-cta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 12px;
+    margin-top: 0;
+  }
+
+  .mid-cta p {
+    color: rgba(255,255,255,0.9);
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    color: var(--navy);
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s;
+  }
+
+  .btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+  /* ============ RELATED GUIDES ============ */
+  .related-section {
+    background: var(--bg-section);
+    padding: 80px 24px;
+  }
+
+  .related-inner { max-width: 1280px; margin: 0 auto; }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 36px);
+    color: var(--white);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    color: var(--text-muted);
+    font-size: 17px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .guide-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    border: 1px solid var(--border-light);
+    backdrop-filter: blur(8px);
+  }
+
+  .guide-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(46,124,246,0.1);
+    border-color: var(--accent);
+  }
+
+  .guide-thumb {
+    height: 160px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+  }
+
+  .guide-card-content { padding: 24px; }
+
+  .guide-category {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .guide-card-content h3 {
+    color: var(--white);
+    font-size: 18px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .guide-card-content p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .guide-link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ============ FINAL CTA ============ */
+  .final-cta {
+    background: var(--navy);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .final-cta-inner { max-width: 700px; margin: 0 auto; }
+
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .final-cta-inner > p {
+    color: var(--text-muted);
+    font-size: 17px;
+    margin-bottom: 32px;
+  }
+
+  .final-cta-contacts {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .final-cta-contact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 15px;
+    transition: color 0.2s;
+  }
+
+  .final-cta-contact:hover { color: var(--white); }
+  .final-cta-contact i { color: var(--accent); }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--white);
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 4px 24px var(--accent-glow);
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 32px var(--accent-glow);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--bg-dark);
+    color: rgba(255,255,255,0.6);
+    padding: 64px 24px 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner { max-width: 1280px; margin: 0 auto; }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand .logo { color: var(--white); margin-bottom: 16px; display: block; }
+  .footer-brand p { margin-bottom: 16px; font-size: 14px; line-height: 1.6; }
+
+  .footer-contact { display: flex; flex-direction: column; gap: 8px; }
+  .footer-contact a { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; }
+
+  .footer-col h4 {
+    color: var(--white);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 12px; font-size: 14px; }
+  .footer-col a:hover { color: var(--white); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1024px) {
+    .btn-partner-header { display: none; }
+    nav ul { display: none; }
+    .mega-4col, .mega-3col, .mega-4col-eq { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .topbar { display: none; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .guide-meta { flex-direction: column; gap: 12px; }
+    .mid-cta { padding: 28px 20px; }
+    .final-cta-contacts { flex-direction: column; align-items: center; }
+    .comparison-table { font-size: 12px; }
+    .comparison-table thead th, .comparison-table tbody td { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href="tel:0123456789"><i data-lucide="phone" width="14" height="14"></i> 01 23 45 67 89</a>
+      <a href="mailto:Lalliepartenaire@gmail.com"><i data-lucide="mail" width="14" height="14"></i> Lalliepartenaire@gmail.com</a>
+    </div>
+    <div>
+      <a href="https://www.google.com/maps/search/?api=1&query=20+boulevard+de+la+Muette+Garges+les+Gonesse" target="_blank" style="display:inline-flex;align-items:center;gap:6px"><i data-lucide="map-pin" width="14" height="14"></i> 20 bd de la Muette, Garges-les-Gonesse</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="header-inner">
+    <a href="../lallie.html" class="logo"><img src="../images/logo-lallie.png" alt="L'Allié" class="logo-img"></a>
+
+    <a href="../partenaire.html" class="btn-partner-header"><i data-lucide="handshake" width="16" height="16"></i> Devenez notre partenaire</a>
+
+    <nav>
+      <ul>
+        <li class="nav-item">
+          <button>Création d'entreprise <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-4col">
+              <div class="mega-col">
+                <h4>Par forme juridique</h4>
+                <a href="../services/creation-societe.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="rocket" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Création de société</div>
+                    <div class="mega-link-desc">Trouvez la bonne structure pour votre projet</div>
+                  </div>
+                </a>
+                <a href="../services/creation-sas.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="trending-up" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">SAS</div>
+                    <div class="mega-link-desc">Flexibilité et actionnariat libre</div>
+                  </div>
+                </a>
+                <a href="../services/creation-sasu.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="user" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">SASU</div>
+                    <div class="mega-link-desc">Société unipersonnelle simplifiée</div>
+                  </div>
+                </a>
+                <a href="../services/creation-sarl.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="building-2" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">SARL</div>
+                    <div class="mega-link-desc">Idéal pour une gestion familiale</div>
+                  </div>
+                </a>
+                <a href="../services/creation-sci.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="home" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">SCI</div>
+                    <div class="mega-link-desc">Gestion patrimoniale immobilière</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Autres statuts</h4>
+                <a href="../services/creation-micro-entreprise.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="zap" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Micro-entreprise</div>
+                    <div class="mega-link-desc">Le plus simple pour démarrer</div>
+                  </div>
+                </a>
+                <a href="../services/creation-eurl.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="briefcase" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">EURL</div>
+                    <div class="mega-link-desc">Entreprise individuelle à responsabilité</div>
+                  </div>
+                </a>
+                <a href="../services/creation-association.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="handshake" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Association</div>
+                    <div class="mega-link-desc">Organisez votre projet collectif</div>
+                  </div>
+                </a>
+                <a href="../services/aide-choix-statut.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="help-circle" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Aide au choix du statut</div>
+                    <div class="mega-link-desc">Conseil personnalisé selon votre projet</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Par activité</h4>
+                <a href="../services/tenue-comptable.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="laptop" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Freelance / Consultant</div></div>
+                </a>
+                <a href="../services/tableaux-de-bord.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="shopping-cart" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">E-commerce</div></div>
+                </a>
+                <a href="../services/bilan-annuel.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="hammer" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Artisan / BTP</div></div>
+                </a>
+                <a href="../services/declarations-tva.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="store" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Commerce</div></div>
+                </a>
+                <a href="../services/declarations-urssaf.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="stethoscope" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Profession libérale</div></div>
+                </a>
+              </div>
+
+              <div class="mega-cta-card">
+                <div>
+                  <h5>Pas sûr de votre projet ?</h5>
+                  <p>Discutons-en ensemble. Premier échange gratuit et sans engagement.</p>
+                </div>
+                <a href="../contact.html" class="mega-cta-btn">Prendre rendez-vous <i data-lucide="arrow-right" width="14" height="14"></i></a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <button>Comptabilité <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-4col-eq">
+              <div class="mega-col">
+                <h4>Suivi mensuel</h4>
+                <a href="../services/declarations-impots.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="clipboard-list" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Tenue comptable</div><div class="mega-link-desc">Saisie et rapprochements</div></div>
+                </a>
+                <a href="../services/domiciliation.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="trending-up" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Tableaux de bord</div><div class="mega-link-desc">Pilotage en temps réel</div></div>
+                </a>
+                <a href="../services/gestion-courrier.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="briefcase-business" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Bilan annuel</div><div class="mega-link-desc">Clôture et déclarations</div></div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Déclarations</h4>
+                <a href="../services/modification-statuts.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="file-text" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">TVA</div><div class="mega-link-desc">Mensuelle ou trimestrielle</div></div>
+                </a>
+                <a href="../services/transfert-siege.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="euro" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">URSSAF & charges</div><div class="mega-link-desc">Cotisations sociales</div></div>
+                </a>
+                <a href="../services/fermeture-entreprise.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="files" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Impôts</div><div class="mega-link-desc">IS, IR, liasse fiscale</div></div>
+                </a>
+              </div>
+
+                            <div class="mega-col">
+                <h4>Facturation électronique</h4>
+                <a href="../services/facturation-logiciel.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="receipt" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Logiciel de facturation</div>
+                    <div class="mega-link-desc">Solution conforme et adaptée</div>
+                  </div>
+                </a>
+                <a href="../services/facturation-conformite.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="shield-check" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Mise en conformité</div>
+                    <div class="mega-link-desc">Respectez les obligations 2026</div>
+                  </div>
+                </a>
+                <a href="../services/facturation-accompagnement.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="users" width="20" height="20"></i></div>
+                  <div>
+                    <div class="mega-link-title">Accompagnement</div>
+                    <div class="mega-link-desc">Formation et suivi personnalisé</div>
+                  </div>
+                </a>
+              </div>
+
+<div class="mega-col">
+                <h4>Pour qui ?</h4>
+                <a href="../services/creation-site-internet.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="building-2" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SAS / SARL</div></div>
+                </a>
+                <a href="../services/referencement-google.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="user" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SASU / EURL</div></div>
+                </a>
+                <a href="../services/identite-visuelle.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="zap" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Auto-entreprise</div></div>
+                </a>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="home" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">SCI</div></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <button>Autres services <span class="chevron"><i data-lucide="chevron-down" width="14" height="14"></i></span></button>
+          <div class="mega-menu">
+            <div class="mega-menu-inner mega-3col">
+              <div class="mega-col">
+                <h4>Domiciliation</h4>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="map-pin" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Domiciliation de société</div><div class="mega-link-desc">Adresse pro pour votre Kbis</div></div>
+                </a>
+                <a href="#" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="mailbox" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Gestion du courrier</div><div class="mega-link-desc">Scan et réexpédition</div></div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Formalités</h4>
+                <a href="../services/modification-statuts.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="refresh-cw" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Modification de statuts</div><div class="mega-link-desc">Changement de gérant, capital...</div></div>
+                </a>
+                <a href="../services/transfert-siege.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="truck" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Transfert de siège</div><div class="mega-link-desc">Déménagement de votre société</div></div>
+                </a>
+                <a href="../services/fermeture-entreprise.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="log-out" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Fermeture d'entreprise</div><div class="mega-link-desc">Dissolution et radiation</div></div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <h4>Visibilité digitale</h4>
+                <a href="../services/creation-site-internet.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="globe" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Création de site internet</div><div class="mega-link-desc">Vitrine ou e-commerce</div></div>
+                </a>
+                <a href="../services/referencement-google.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="search" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Référencement Google</div><div class="mega-link-desc">SEO et présence locale</div></div>
+                </a>
+                <a href="../services/identite-visuelle.html" class="mega-link">
+                  <div class="mega-icon"><i data-lucide="palette" width="20" height="20"></i></div>
+                  <div><div class="mega-link-title">Identité visuelle</div><div class="mega-link-desc">Logo et charte graphique</div></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="../guides.html">Guides</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="../contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="../rappel.html" class="btn-cta"><i data-lucide="phone" width="16" height="16"></i> Rappel gratuit</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ BREADCRUMB ============ -->
+<div class="breadcrumb">
+  <a href="../lallie.html">Accueil</a>
+  <span class="separator">/</span>
+  <a href="../guides.html">Guides</a>
+  <span class="separator">/</span>
+  <span class="current">Pourquoi domicilier son entreprise</span>
+</div>
+
+<!-- ============ GUIDE HERO ============ -->
+<section class="guide-hero">
+  <div class="guide-hero-inner">
+    <div class="guide-badge">Domiciliation</div>
+    <h1>Pourquoi domicilier son entreprise est stratégique ?</h1>
+    <p class="guide-hero-subtitle">
+      La domiciliation n'est pas qu'une formalité administrative. C'est un levier stratégique qui impacte votre image, votre vie privée et même votre fiscalité. Tout comprendre pour faire le bon choix.
+    </p>
+    <div class="guide-meta">
+      <div class="guide-meta-item">
+        <i data-lucide="clock" width="16" height="16"></i> 10 min de lecture
+      </div>
+      <div class="guide-meta-item">
+        <i data-lucide="calendar" width="16" height="16"></i> Mis à jour le 29 mai 2026
+      </div>
+      <div class="guide-meta-item">
+        <i data-lucide="user" width="16" height="16"></i> Par L'équipe L'Allié
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOMMAIRE ============ -->
+<div class="toc-section">
+  <div class="toc-card">
+    <div class="toc-title"><i data-lucide="list" width="22" height="22"></i> Sommaire</div>
+    <ol class="toc-list">
+      <li><a href="#section-1">Qu'est-ce que la domiciliation d'entreprise</a></li>
+      <li><a href="#section-2">Les 5 raisons stratégiques de domicilier</a></li>
+      <li><a href="#section-3">Protéger sa vie privée et son adresse personnelle</a></li>
+      <li><a href="#section-4">Donner une image professionnelle</a></li>
+      <li><a href="#section-5">Bénéficier d'une adresse prestigieuse</a></li>
+      <li><a href="#section-6">Faciliter la gestion du courrier</a></li>
+      <li><a href="#section-7">Optimiser fiscalement selon la ville</a></li>
+      <li><a href="#section-8">Domiciliation chez soi vs société de domiciliation</a></li>
+      <li><a href="#section-9">Les services inclus dans une bonne domiciliation</a></li>
+      <li><a href="#section-10">Comment choisir son domiciliataire</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ============ GUIDE BODY ============ -->
+<div class="guide-body">
+
+  <!-- SECTION 1 -->
+  <h2 id="section-1">Qu'est-ce que la domiciliation d'entreprise</h2>
+
+  <p>La domiciliation d'entreprise désigne l'adresse administrative et juridique de votre société. C'est l'adresse qui figure sur votre extrait Kbis, sur vos factures, vos contrats et toutes vos correspondances officielles. En France, toute entreprise, quelle que soit sa forme juridique, est tenue par la loi d'avoir un siège social déclaré.</p>
+
+  <p>Cette adresse est publique : elle apparaît sur les registres du tribunal de commerce et est accessible à toute personne effectuant une recherche sur votre société (via Infogreffe, Societe.com, etc.). C'est précisément cette dimension publique qui fait de la domiciliation un choix stratégique, et non une simple formalité à cocher.</p>
+
+  <p>Concrètement, vous avez plusieurs options pour domicilier votre entreprise : à votre domicile personnel, dans un local commercial que vous louez ou achetez, dans une pépinière d'entreprises, ou auprès d'une société de domiciliation agréée. Chaque option a ses avantages, ses limites et ses implications que nous allons détailler dans ce guide.</p>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>L'adresse de domiciliation est une obligation légale pour toute entreprise en France. Elle figure sur le Kbis et est accessible publiquement. C'est bien plus qu'une simple adresse postale : c'est votre identité juridique.</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <h2 id="section-2">Les 5 raisons stratégiques de domicilier</h2>
+
+  <p>Au-delà de l'obligation légale, la domiciliation de votre entreprise répond à cinq enjeux majeurs que tout entrepreneur devrait considérer avec attention :</p>
+
+  <ul>
+    <li><strong>La protection de la vie privée.</strong> Éviter que votre adresse personnelle soit rendue publique et accessible à tous sur les registres officiels.</li>
+    <li><strong>L'image professionnelle.</strong> Une adresse dans un quartier d'affaires ou une ville reconnue renforce immédiatement la crédibilité de votre entreprise auprès des clients, partenaires et banques.</li>
+    <li><strong>La gestion simplifiée du courrier.</strong> Recevoir, trier, scanner et réexpédier votre courrier professionnel sans vous déplacer, avec des notifications en temps réel.</li>
+    <li><strong>L'optimisation fiscale.</strong> Le taux de la Cotisation Foncière des Entreprises (CFE) varie significativement d'une commune à l'autre. Une domiciliation bien choisie peut réduire cette charge.</li>
+    <li><strong>La flexibilité géographique.</strong> Travailler de n'importe où tout en ayant une adresse fixe et prestigieuse pour votre activité professionnelle.</li>
+  </ul>
+
+  <p>Chacun de ces points mérite une attention particulière. Détaillons-les un par un.</p>
+
+  <!-- SECTION 3 -->
+  <h2 id="section-3">Protéger sa vie privée et son adresse personnelle</h2>
+
+  <p>C'est souvent la raison numéro un qui pousse les entrepreneurs à recourir à une société de domiciliation. Lorsque vous créez votre entreprise et que vous la domiciliez chez vous, votre adresse personnelle devient publique. N'importe qui — client mécontent, démarcheur, concurrent — peut la retrouver en quelques clics sur les sites d'information légale.</p>
+
+  <p>Pour les professions exposées au public (e-commerce, conseil, coaching, activités sur les réseaux sociaux), cette exposition peut poser de réels problèmes de sécurité et de tranquillité. Des clients insatisfaits qui se présentent à votre porte, des démarcheurs qui inondent votre boîte aux lettres personnelle, voire des situations plus délicates.</p>
+
+  <p>En domiciliant votre entreprise auprès d'une société de domiciliation, vous créez une barrière nette entre votre vie professionnelle et votre vie personnelle. Votre adresse privée reste confidentielle, et seule l'adresse de domiciliation apparaît sur les documents officiels.</p>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>Votre adresse de siège social est publique et consultable par tous. Si vous ne souhaitez pas exposer votre adresse personnelle, la domiciliation auprès d'un professionnel est la solution la plus simple et la plus efficace.</p>
+  </div>
+
+  <!-- SECTION 4 -->
+  <h2 id="section-4">Donner une image professionnelle</h2>
+
+  <p>Que vous soyez freelance, consultant, e-commerçant ou dirigeant d'une TPE, l'adresse de votre entreprise envoie un signal fort à vos interlocuteurs. Une adresse dans une zone résidentielle ou un appartement particulier n'inspire pas la même confiance qu'une adresse dans un quartier d'affaires.</p>
+
+  <p>Les banques, notamment, sont particulièrement attentives à l'adresse de siège social lors de l'ouverture d'un compte professionnel ou de l'étude d'un dossier de financement. Une adresse professionnelle rassure et témoigne d'une certaine structuration de l'activité.</p>
+
+  <p>Il en va de même pour vos clients et prospects. Sur vos devis, factures et mentions légales de votre site internet, une adresse professionnelle renforce votre crédibilité. C'est un détail qui fait la différence, notamment dans les secteurs où la confiance est un facteur clé de décision (conseil, services B2B, immobilier, juridique).</p>
+
+  <!-- SECTION 5 -->
+  <h2 id="section-5">Bénéficier d'une adresse prestigieuse</h2>
+
+  <p>Certaines adresses ont un pouvoir d'évocation immédiat. Une domiciliation à Paris, dans un arrondissement central, sur les Champs-Élysées ou dans le quartier de la Défense, projette instantanément une image de sérieux et d'ambition. C'est un levier marketing à part entière.</p>
+
+  <p>Cette stratégie est particulièrement pertinente pour les entreprises qui travaillent à l'international : une adresse parisienne rassure les partenaires étrangers. Elle l'est aussi pour les startups qui souhaitent projeter une image d'envergure dès leur lancement, ou pour les professions de conseil qui doivent inspirer confiance.</p>
+
+  <p>L'avantage d'une société de domiciliation est de rendre ces adresses accessibles sans avoir à supporter le coût d'un bail commercial dans ces quartiers premium. Vous bénéficiez du prestige de l'adresse pour une fraction du coût réel.</p>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>Une adresse prestigieuse est un investissement marketing. Elle renforce la perception de votre marque auprès des clients, partenaires et investisseurs, sans nécessiter de bureaux physiques sur place.</p>
+  </div>
+
+  <!-- SECTION 6 -->
+  <h2 id="section-6">Faciliter la gestion du courrier</h2>
+
+  <p>La gestion du courrier professionnel est un sujet souvent sous-estimé par les créateurs d'entreprise. Pourtant, entre les courriers administratifs (impôts, URSSAF, greffe), les courriers de fournisseurs, les relances clients et les envois recommandés, le volume peut rapidement devenir conséquent.</p>
+
+  <p>Une bonne société de domiciliation prend en charge l'ensemble de cette gestion. Le courrier est réceptionné, trié, et vous êtes notifié à chaque réception. Selon les formules, le courrier peut être scanné et mis à disposition en ligne (vous le consultez depuis votre téléphone), réexpédié à l'adresse de votre choix, ou conservé pour retrait sur place.</p>
+
+  <p>Pour les entrepreneurs nomades, les freelances qui travaillent depuis différents lieux, ou simplement ceux qui ne veulent pas mélanger courrier personnel et professionnel, c'est un gain de temps et d'organisation considérable.</p>
+
+  <!-- MID-ARTICLE CTA -->
+  <div class="mid-cta">
+    <h3>Besoin d'une domiciliation pour votre entreprise ?</h3>
+    <p>Notre équipe vous accompagne pour choisir la solution de domiciliation adaptée à votre projet.</p>
+    <a href="../contact.html" class="btn-white">Discutons-en gratuitement <i data-lucide="arrow-right" width="16" height="16"></i></a>
+  </div>
+
+  <!-- SECTION 7 -->
+  <h2 id="section-7">Optimiser fiscalement selon la ville</h2>
+
+  <p>Ce que beaucoup d'entrepreneurs ignorent, c'est que l'adresse de domiciliation a un impact direct sur certaines charges fiscales. La Cotisation Foncière des Entreprises (CFE), qui remplace l'ancienne taxe professionnelle, est calculée en fonction de la commune où est situé le siège social.</p>
+
+  <p>Les taux de CFE varient considérablement d'une ville à l'autre. Certaines communes appliquent des taux très faibles pour attirer les entreprises, tandis que d'autres, notamment les grandes métropoles, pratiquent des taux nettement plus élevés. L'écart peut représenter plusieurs centaines d'euros par an, voire davantage selon la valeur locative de référence.</p>
+
+  <p>Le choix de la commune de domiciliation peut donc constituer un levier d'optimisation fiscale légal et pertinent, notamment pour les petites structures dont les charges fixes doivent être maîtrisées. Un professionnel de la domiciliation peut vous conseiller sur les communes les plus avantageuses en fonction de votre activité.</p>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>Le taux de CFE varie d'une commune à l'autre. Bien choisir sa ville de domiciliation peut représenter une économie significative sur le long terme. Renseignez-vous sur les taux pratiqués avant de fixer votre siège social.</p>
+  </div>
+
+  <!-- SECTION 8 -->
+  <h2 id="section-8">Domiciliation chez soi vs société de domiciliation</h2>
+
+  <p>C'est la question que se posent la majorité des créateurs d'entreprise. Voici un comparatif objectif pour vous aider à trancher :</p>
+
+  <div class="table-wrapper">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Critère</th>
+          <th>Domiciliation chez soi</th>
+          <th>Société de domiciliation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Coût</td>
+          <td>Gratuit</td>
+          <td>Abonnement mensuel</td>
+        </tr>
+        <tr>
+          <td>Vie privée</td>
+          <td>Adresse personnelle publique</td>
+          <td>Adresse personnelle protégée</td>
+        </tr>
+        <tr>
+          <td>Image professionnelle</td>
+          <td>Limitée (adresse résidentielle)</td>
+          <td>Forte (adresse d'affaires)</td>
+        </tr>
+        <tr>
+          <td>Gestion du courrier</td>
+          <td>A votre charge</td>
+          <td>Tri, scan, réexpédition inclus</td>
+        </tr>
+        <tr>
+          <td>Salles de réunion</td>
+          <td>Non disponibles</td>
+          <td>Souvent incluses ou en option</td>
+        </tr>
+        <tr>
+          <td>Flexibilité</td>
+          <td>Liée à votre logement</td>
+          <td>Changement d'adresse facile</td>
+        </tr>
+        <tr>
+          <td>Restrictions légales</td>
+          <td>Bail ou règlement de copropriété peut l'interdire</td>
+          <td>Aucune restriction</td>
+        </tr>
+        <tr>
+          <td>Accueil téléphonique</td>
+          <td>Non inclus</td>
+          <td>Souvent proposé en option</td>
+        </tr>
+        <tr>
+          <td>Durée autorisée</td>
+          <td>Limitée à 5 ans dans certains cas</td>
+          <td>Illimitée</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>La domiciliation chez soi est une solution de démarrage acceptable pour tester une activité, mais elle montre rapidement ses limites dès que l'entreprise se structure. De plus, certains baux d'habitation ou règlements de copropriété interdisent ou limitent la domiciliation d'une activité commerciale, ce qui peut poser des problèmes juridiques.</p>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>La domiciliation chez soi est gratuite mais expose votre adresse personnelle et peut être limitée dans le temps ou interdite par votre bail. La société de domiciliation offre une solution complète, professionnelle et sans contrainte.</p>
+  </div>
+
+  <!-- SECTION 9 -->
+  <h2 id="section-9">Les services inclus dans une bonne domiciliation</h2>
+
+  <p>Toutes les offres de domiciliation ne se valent pas. Voici les services que vous devriez retrouver dans une prestation de domiciliation de qualité :</p>
+
+  <ul>
+    <li><strong>Adresse officielle pour le Kbis.</strong> C'est la base : une adresse légale reconnue par le greffe du tribunal de commerce, utilisable sur tous vos documents officiels.</li>
+    <li><strong>Réception et gestion du courrier.</strong> Réception quotidienne, tri, notification par email ou SMS à chaque courrier reçu. C'est le service le plus utilisé au quotidien.</li>
+    <li><strong>Scan et mise en ligne.</strong> Vos courriers sont numérisés et consultables depuis un espace en ligne sécurisé. Vous accédez à votre courrier professionnel depuis n'importe où.</li>
+    <li><strong>Réexpédition postale.</strong> Si vous préférez recevoir vos courriers physiquement, ils sont regroupés et réexpédiés à l'adresse de votre choix selon la fréquence que vous définissez.</li>
+    <li><strong>Accès à des salles de réunion.</strong> De nombreuses sociétés de domiciliation proposent des espaces de réunion réservables à l'heure ou à la journée, ce qui vous permet de recevoir clients et partenaires dans un cadre professionnel.</li>
+    <li><strong>Accueil téléphonique.</strong> Certaines formules incluent un standard téléphonique avec un numéro dédié, des messages pris en votre nom et transférés par email.</li>
+    <li><strong>Accompagnement administratif.</strong> Les meilleures sociétés de domiciliation vous accompagnent dans les formalités de transfert de siège social et dans les démarches auprès du greffe.</li>
+  </ul>
+
+  <!-- SECTION 10 -->
+  <h2 id="section-10">Comment choisir son domiciliataire</h2>
+
+  <p>Le choix d'une société de domiciliation mérite autant d'attention que le choix d'un expert-comptable ou d'un avocat. Voici les critères à évaluer :</p>
+
+  <ul>
+    <li><strong>L'agrément préfectoral.</strong> Vérifiez que la société dispose bien d'un agrément de la préfecture. C'est une obligation légale qui garantit le sérieux du prestataire et sa conformité avec la réglementation en vigueur.</li>
+    <li><strong>La localisation de l'adresse.</strong> Choisissez une adresse cohérente avec votre activité et votre image de marque. Une adresse parisienne n'a pas le même impact qu'une adresse en périphérie.</li>
+    <li><strong>Les services inclus et en option.</strong> Comparez les formules en détail : que comprend l'abonnement de base ? Quels services sont facturés en supplément ? Le scan du courrier est-il inclus ou payant à l'unité ?</li>
+    <li><strong>La flexibilité du contrat.</strong> Préférez un engagement souple (mensuel ou trimestriel) plutôt qu'un engagement annuel rigide. Votre situation peut évoluer et vous devez pouvoir adapter votre domiciliation en conséquence.</li>
+    <li><strong>La réactivité du service.</strong> La rapidité de traitement du courrier et la qualité du service client sont des critères déterminants au quotidien. Consultez les avis en ligne pour vous faire une idée.</li>
+    <li><strong>Les avis et la réputation.</strong> Comme pour tout prestataire, les retours d'expérience d'autres entrepreneurs sont précieux. Recherchez des avis sur Google, les réseaux sociaux et les forums spécialisés.</li>
+  </ul>
+
+  <div class="callout">
+    <div class="callout-title">A retenir</div>
+    <p>Choisissez un domiciliataire agréé par la préfecture, avec une adresse cohérente avec votre activité, des services adaptés à vos besoins et un contrat flexible. La qualité du service au quotidien (réactivité, scan du courrier, espace client) fait toute la différence.</p>
+  </div>
+
+</div>
+
+<!-- ============ POUR ALLER PLUS LOIN ============ -->
+<section class="related-section">
+  <div class="related-inner">
+    <h2 class="section-title">Pour aller plus loin</h2>
+    <p class="section-subtitle">Explorez nos autres guides pour approfondir vos connaissances.</p>
+    <div class="guides-grid">
+      <div class="guide-card">
+        <div class="guide-thumb"><i data-lucide="book-open" width="48" height="48"></i></div>
+        <div class="guide-card-content">
+          <div class="guide-category">Création</div>
+          <h3>Comment choisir le bon statut juridique ?</h3>
+          <p>SARL, SAS, micro-entreprise... Tous les critères pour faire le bon choix.</p>
+          <a href="comment-choisir-statut-juridique.html" class="guide-link">Lire le guide <i data-lucide="arrow-right" width="14" height="14"></i></a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-thumb"><i data-lucide="scale" width="48" height="48"></i></div>
+        <div class="guide-card-content">
+          <div class="guide-category">Juridique</div>
+          <h3>SARL ou SAS : quelle structure pour vous ?</h3>
+          <p>Comparatif détaillé pour choisir la forme la plus adaptée à votre projet.</p>
+          <a href="sarl-ou-sas.html" class="guide-link">Lire le guide <i data-lucide="arrow-right" width="14" height="14"></i></a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-thumb"><i data-lucide="trending-up" width="48" height="48"></i></div>
+        <div class="guide-card-content">
+          <div class="guide-category">Comptabilité</div>
+          <h3>Les obligations comptables d'un dirigeant</h3>
+          <p>Ce que vous devez absolument savoir pour rester en règle.</p>
+          <a href="obligations-comptables-dirigeant.html" class="guide-link">Lire le guide <i data-lucide="arrow-right" width="14" height="14"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h2>Besoin d'aide pour domicilier votre entreprise ?</h2>
+    <p>Premier échange gratuit, sans engagement. On vous rappelle dans la journée.</p>
+    <div class="final-cta-contacts">
+      <a href="tel:0123456789" class="final-cta-contact"><i data-lucide="phone" width="18" height="18"></i> 01 23 45 67 89</a>
+      <a href="mailto:Lalliepartenaire@gmail.com" class="final-cta-contact"><i data-lucide="mail" width="18" height="18"></i> Lalliepartenaire@gmail.com</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=20+boulevard+de+la+Muette+Garges+les+Gonesse" target="_blank" class="final-cta-contact"><i data-lucide="map-pin" width="18" height="18"></i> 20 bd de la Muette, Garges</a>
+    </div>
+    <a href="../contact.html" class="btn-primary">Discutons de votre projet <i data-lucide="arrow-right" width="18" height="18"></i></a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../lallie.html" class="logo"><img src="../images/logo-lallie.png" alt="L'Allié" class="logo-img"></a>
+        <p>Votre partenaire de confiance pour toutes vos démarches administratives, comptables et juridiques.</p>
+        <div class="footer-contact">
+          <a href="tel:0123456789"><i data-lucide="phone" width="14" height="14"></i> 01 23 45 67 89</a>
+          <a href="mailto:Lalliepartenaire@gmail.com"><i data-lucide="mail" width="14" height="14"></i> Lalliepartenaire@gmail.com</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=20+boulevard+de+la+Muette+Garges+les+Gonesse" target="_blank"><i data-lucide="map-pin" width="14" height="14"></i> 20 bd de la Muette, Garges-lès-Gonesse</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Création d'entreprise</a></li>
+          <li><a href="#">Comptabilité</a></li>
+          <li><a href="#">Domiciliation</a></li>
+          <li><a href="#">Modification de statuts</a></li>
+          <li><a href="#">Création de site internet</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Entreprise</h4>
+        <ul>
+          <li><a href="#">À propos</a></li>
+          <li><a href="../guides.html">Nos guides</a></li>
+          <li><a href="#">Avis clients</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="../partenaire.html">Devenir partenaire</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">CGV / CGU</a></li>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">Gestion des cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 L'Allié — Tous droits réservés</div>
+      <div>Site conçu avec soin pour les entrepreneurs</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>
