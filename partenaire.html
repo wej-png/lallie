@@ -327,6 +327,7 @@
     .p-form-row { grid-template-columns: 1fr; }
     .page-hero { padding: 48px 24px; }
   }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
@@ -511,6 +512,10 @@
       <!-- FORMULAIRE -->
       <div class="partner-form-card">
         <form id="partnerForm">
+          <input type="hidden" name="access_key" value="bce96fc5-0897-4b67-bfe4-29c460ef7718">
+          <input type="hidden" name="subject" value="Nouvelle candidature partenaire - Site L'Allié">
+          <input type="hidden" name="from_name" value="Site L'Allié">
+          <input type="checkbox" name="botcheck" style="display:none">
           <h3>Candidature partenaire</h3>
           <div class="p-form-row full">
             <div class="p-field"><label>Civilité</label><div class="p-radio-group"><label class="p-radio-option"><input type="radio" name="p_civilite" value="M."> M.</label><label class="p-radio-option"><input type="radio" name="p_civilite" value="Mme"> Mme</label></div></div>
@@ -622,16 +627,38 @@
     document.getElementById('condMetierAutre').classList.toggle('visible', this.value === 'autre');
   });
 
-  // Form submit
-  document.getElementById('partnerForm').addEventListener('submit', function(e) {
+  // Form submit (Web3Forms)
+  document.getElementById('partnerForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    if (!this.checkValidity()) { this.reportValidity(); return; }
-    document.getElementById('partnerSuccessName').textContent = document.getElementById('p_prenom').value;
-    this.style.display = 'none';
-    var msg = document.getElementById('partnerSuccess');
-    msg.classList.add('visible');
+    const form = this;
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const submitBtn = form.querySelector('.p-submit');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i data-lucide="loader" width="18" height="18" style="animation:spin 1s linear infinite"></i> Envoi en cours...';
     lucide.createIcons();
-    window.scrollTo({ top: msg.offsetTop - 120, behavior: 'smooth' });
+    try {
+      const resp = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form)
+      });
+      const data = await resp.json();
+      if (data.success) {
+        document.getElementById('partnerSuccessName').textContent = document.getElementById('p_prenom').value;
+        form.style.display = 'none';
+        var msg = document.getElementById('partnerSuccess');
+        msg.classList.add('visible');
+        lucide.createIcons();
+        window.scrollTo({ top: msg.offsetTop - 120, behavior: 'smooth' });
+      } else {
+        throw new Error(data.message || 'Erreur');
+      }
+    } catch (err) {
+      alert('Une erreur est survenue. Veuillez réessayer ou nous appeler directement au 01 23 45 67 89.');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+      lucide.createIcons();
+    }
   });
 
   // Mobile Menu

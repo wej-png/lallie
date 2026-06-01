@@ -418,6 +418,7 @@
     .form-row { grid-template-columns: 1fr; }
     .page-hero { padding: 48px 24px; }
   }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
@@ -594,6 +595,10 @@
     <!-- FORM -->
     <div class="form-block">
       <form id="contactForm" novalidate>
+        <input type="hidden" name="access_key" value="bce96fc5-0897-4b67-bfe4-29c460ef7718">
+        <input type="hidden" name="subject" value="Nouvelle demande de contact - Site L'Allié">
+        <input type="hidden" name="from_name" value="Site L'Allié">
+        <input type="checkbox" name="botcheck" style="display:none">
 
         <!-- SECTION 1 -->
         <div class="form-section-group">
@@ -961,21 +966,38 @@
     }
   }
 
-  // Form submit
-  document.getElementById('contactForm').addEventListener('submit', (e) => {
+  // Form submit (Web3Forms)
+  document.getElementById('contactForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const form = e.target;
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-    const prenom = document.getElementById('prenom').value;
-    document.getElementById('successName').textContent = prenom;
-    form.style.display = 'none';
-    const msg = document.getElementById('successMsg');
-    msg.classList.add('visible');
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const submitBtn = form.querySelector('.btn-submit');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i data-lucide="loader" width="20" height="20" style="animation:spin 1s linear infinite"></i> Envoi en cours...';
     lucide.createIcons();
-    window.scrollTo({ top: msg.offsetTop - 120, behavior: 'smooth' });
+    try {
+      const resp = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form)
+      });
+      const data = await resp.json();
+      if (data.success) {
+        document.getElementById('successName').textContent = document.getElementById('prenom').value;
+        form.style.display = 'none';
+        const msg = document.getElementById('successMsg');
+        msg.classList.add('visible');
+        lucide.createIcons();
+        window.scrollTo({ top: msg.offsetTop - 120, behavior: 'smooth' });
+      } else {
+        throw new Error(data.message || 'Erreur');
+      }
+    } catch (err) {
+      alert('Une erreur est survenue. Veuillez réessayer ou nous appeler directement au 01 23 45 67 89.');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+      lucide.createIcons();
+    }
   });
 
   // Mobile Menu
